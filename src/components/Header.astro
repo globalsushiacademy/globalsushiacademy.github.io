@@ -1,0 +1,100 @@
+---
+import { getLangFromUrl, useTranslations, localePath, alternatePath } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Primary navigation is deliberately six items — see PLAN.md §7.
+// Career, Reviews and FAQ live in the footer, not here.
+const nav = [
+  { href: '/courses', label: t('nav.courses') },
+  { href: '/about', label: t('nav.about') },
+  { href: '/certification', label: t('nav.certification') },
+  { href: '/international-students', label: t('nav.international') },
+  { href: '/gallery', label: t('nav.gallery') },
+  { href: '/contact', label: t('nav.contact') },
+];
+
+const current = Astro.url.pathname;
+---
+
+<header class="relative border-b border-[var(--color-line)]">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 py-4">
+    <a href={localePath(lang, '/')} class="flex flex-col leading-tight">
+      <span lang="ja" class="text-xs tracking-widest text-[var(--color-muted)]">
+        グローバル寿司アカデミー
+      </span>
+      <span class="font-[family-name:var(--font-display)] text-lg font-semibold">
+        Global Sushi Academy
+      </span>
+    </a>
+
+    <!-- Mobile: a <details> disclosure so navigation works with zero JS. -->
+    <details class="md:hidden">
+      <summary
+        class="cursor-pointer list-none border border-[var(--color-line)] px-3 py-2 text-sm"
+      >
+        {t('nav.menu')}
+      </summary>
+      <nav
+        aria-label={t('nav.menu')}
+        class="absolute left-0 right-0 z-40 border-b border-[var(--color-line)] bg-[var(--color-bg)] px-4 py-4 shadow-sm"
+      >
+        <ul class="flex flex-col gap-3 text-base">
+          {
+            nav.map((item) => {
+              const href = localePath(lang, item.href);
+              const isCurrent = current === href || current === `${href}/`;
+              return (
+                <li>
+                  <a href={href} aria-current={isCurrent ? 'page' : undefined}>
+                    {item.label}
+                  </a>
+                </li>
+              );
+            })
+          }
+          <li class="pt-2">
+            <a href={alternatePath(lang, Astro.url)} class="text-sm uppercase tracking-wide">
+              {lang === 'en' ? 'Deutsch' : 'English'}
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </details>
+
+    <nav aria-label={t('nav.menu')} class="hidden md:block">
+      <ul class="flex items-center gap-6 text-sm">
+        {
+          nav.map((item) => {
+            const href = localePath(lang, item.href);
+            const isCurrent = current === href || current === `${href}/`;
+            return (
+              <li>
+                <a
+                  href={href}
+                  aria-current={isCurrent ? 'page' : undefined}
+                  class:list={[
+                    'hover:text-[var(--color-accent)]',
+                    isCurrent && 'text-[var(--color-accent)] underline underline-offset-4',
+                  ]}
+                >
+                  {item.label}
+                </a>
+              </li>
+            );
+          })
+        }
+        <li>
+          <a
+            href={alternatePath(lang, Astro.url)}
+            class="border border-[var(--color-line)] px-2 py-1 text-xs uppercase tracking-wide hover:border-[var(--color-accent)]"
+          >
+            {lang === 'en' ? 'DE' : 'EN'}
+            <span class="sr-only">{t('lang.switch')}</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

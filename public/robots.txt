@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://globalsushiacademy.com/sitemap-index.xml

@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LegalStub from '../components/LegalStub.astro';
+
+const items = [
+  "Vollständiger Name und Rechtsform des Betreibers",
+  "Vollständige Postanschrift (kein Postfach)",
+  "E-Mail-Adresse (Pflicht) und eine zweite schnelle Kontaktmöglichkeit, z. B. Telefonnummer",
+  "Registergericht und Registernummer, sofern eingetragen",
+  "Umsatzsteuer-Identifikationsnummer nach § 27a UStG, sofern vorhanden",
+  "Verantwortliche Person für redaktionelle Inhalte nach § 18 Abs. 2 MStV, sofern Blog/News",
+  "OFFEN: Welche juristische Person betreibt die Seite? Die Altdatenbank nennt sowohl die Lübecker Anschrift als auch GLOBAL SUSHI ACADEMY PVT. LTD., Reg.-Nr. 187998, Bhaktapur, Nepal."
+];
+---
+
+<BaseLayout title="Impressum" description="Anbieterkennzeichnung nach § 5 DDG." noindex={true}>
+  <LegalStub
+    heading="Impressum"
+    intro="Pflichtangaben nach § 5 DDG. Diese Seite muss von jeder Seite aus mit höchstens zwei Klicks erreichbar sein."
+    items={items}
+  />
+</BaseLayout>

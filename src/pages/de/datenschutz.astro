@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LegalStub from '../../components/LegalStub.astro';
+
+const items = [
+  "Verantwortlicher und Kontaktdaten (Art. 13 Abs. 1 lit. a DSGVO)",
+  "Hosting: GitHub Pages wird in den USA betrieben (Microsoft). Server-Logs mit IP-Adressen benennen, Rechtsgrundlage Art. 6 Abs. 1 lit. f DSGVO und die Grundlage für den Drittlandtransfer angeben — DPF-Zertifizierung zum Zeitpunkt der Veröffentlichung prüfen.",
+  "Alle eingebundenen Drittdienste. Ziel ist, dass diese Liste leer bleibt: Schriften selbst gehostet, keine Google-Maps-Einbettung, keine Analyse-Tools.",
+  "Betroffenenrechte (Art. 15–21 DSGVO)",
+  "Zuständige Aufsichtsbehörde: Unabhängiges Landeszentrum für Datenschutz Schleswig-Holstein (ULD)",
+  "Kontaktaufnahme per E-Mail/Telefon: welche Daten, zu welchem Zweck, Speicherdauer",
+  "Solange keine Cookies und keine Drittdienste geladen werden, ist kein Consent-Banner erforderlich. Diese Eigenschaft bewusst erhalten."
+];
+---
+
+<BaseLayout title="Datenschutzerklärung" description="Informationen zur Verarbeitung personenbezogener Daten nach Art. 13 DSGVO." noindex={true}>
+  <LegalStub
+    heading="Datenschutzerklärung"
+    intro="Pflichtinformationen nach Art. 13 DSGVO. Die Erklärung ist auf Deutsch zu führen."
+    items={items}
+  />
+</BaseLayout>

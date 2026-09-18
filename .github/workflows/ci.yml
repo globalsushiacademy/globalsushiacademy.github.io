@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Type-checks .astro files and validates content-collection schemas.
+      - name: Astro check
+        run: npm run check
+
+      - name: Build
+        run: npm run build
+
+      # A site edited months apart rots at its links before anywhere else.
+      - name: Link check
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress --include-fragments 'dist/**/*.html'
+          fail: true
+
+      # Images are the most likely way this site gets slow. See PLAN.md §13.
+      - name: Image weight budget
+        run: npm run check:images
+
+      # This repo was created from a codebase that had a plaintext DB
+      # password in it. Keep checking.
+      - name: Secret scan
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # No third-party CDN calls: keeps the site consent-free (PLAN.md §10.2).
+      - name: No third-party embeds
+        run: npm run check:privacy

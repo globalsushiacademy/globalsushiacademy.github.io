@@ -1,0 +1,84 @@
+---
+import { getLangFromUrl, useTranslations, localePath } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+
+const secondary = [
+  { href: '/career', label: t('nav.career') },
+  { href: '/faq', label: t('nav.faq') },
+];
+
+/*
+ * Impressum and Datenschutzerklärung must be reachable in at most two clicks
+ * from EVERY page (§5 DDG). A footer link on the shared layout is what
+ * guarantees that — do not make these conditional.
+ */
+const legal = [
+  { href: '/impressum', label: t('footer.imprint') },
+  { href: '/datenschutz', label: t('footer.privacy') },
+];
+---
+
+<footer class="mt-16 border-t border-[var(--color-line)] bg-[var(--color-ink)] text-white">
+  <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:grid-cols-2 md:grid-cols-3">
+    <div>
+      <p lang="ja" class="text-xs tracking-widest text-white/60">グローバル寿司アカデミー</p>
+      <p class="font-[family-name:var(--font-display)] text-lg">Global Sushi Academy</p>
+      <address class="mt-3 text-sm not-italic leading-relaxed text-white/80">
+        Marienkirchhof 2–3<br />
+        23552 Lübeck<br />
+        Germany
+      </address>
+    </div>
+
+    <div>
+      <h2 class="text-xs uppercase tracking-widest text-white/60">{t('nav.contact')}</h2>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li>
+          <a href="tel:+4915257560040" class="hover:text-[var(--color-accent)]">
+            +49 1525 7560040
+          </a>
+        </li>
+        <li>
+          <a href="mailto:info@globalsushiacademy.com" class="hover:text-[var(--color-accent)]">
+            info@globalsushiacademy.com
+          </a>
+        </li>
+      </ul>
+      <ul class="mt-4 space-y-2 text-sm">
+        {
+          secondary.map((item) => (
+            <li>
+              <a href={localePath(lang, item.href)} class="hover:text-[var(--color-accent)]">
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="text-xs uppercase tracking-widest text-white/60">{t('footer.legal')}</h2>
+      <ul class="mt-3 space-y-2 text-sm">
+        {
+          legal.map((item) => (
+            <li>
+              <a href={localePath(lang, item.href)} class="hover:text-[var(--color-accent)]">
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <p class="mx-auto max-w-6xl px-4 py-4 text-xs text-white/60">
+      © 2016–{year} Global Sushi Academy. {t('footer.rights')}
+    </p>
+  </div>
+</footer>

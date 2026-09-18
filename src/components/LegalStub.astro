@@ -1,0 +1,32 @@
+---
+/**
+ * Placeholder for the two legally mandatory pages.
+ *
+ * Deliberately NOT filled with plausible-looking text: a wrong Impressum is
+ * worse than an obviously unfinished one, and the operating legal entity is
+ * still unconfirmed (PLAN.md §10.1 — the legacy database lists both the
+ * Lübeck address and a Nepali Pvt. Ltd.).
+ *
+ * The site must not go live until both pages are complete and reviewed.
+ */
+interface Props {
+  heading: string;
+  intro: string;
+  items: string[];
+}
+const { heading, intro, items } = Astro.props;
+---
+
+<section class="mx-auto max-w-3xl px-4 py-20">
+  <div class="border-2 border-[var(--color-accent)] p-4 text-sm">
+    <strong class="text-[var(--color-accent)]">Not complete — do not publish.</strong>
+    This page is legally required before the site goes live.
+  </div>
+
+  <h1 class="mt-8 font-[family-name:var(--font-display)] text-4xl">{heading}</h1>
+  <p class="mt-6 text-[var(--color-muted)]">{intro}</p>
+
+  <ul class="mt-6 list-disc space-y-2 pl-6 text-[var(--color-muted)]">
+    {items.map((item) => <li>{item}</li>)}
+  </ul>
+</section>
