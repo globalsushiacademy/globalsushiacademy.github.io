@@ -5,14 +5,12 @@ tagline: "One day. Two to three hours. Your first real sushi."
 duration: "One day, 2–3 hours"
 format: "Practical, hands-on training"
 level: "Complete beginners welcome"
-price: "€149 net per person — TBC gross. The 2026 course document's header table still shows €99, which matches the old website's price for this course exactly (legacy DB: \"One-day Intensive Sushi Course\", fee 99). €149 is the document's own updated figure (its \"Good to Know\" box) and is used here per the owner's instruction to prefer the new price over the old one. Still needs the 19% VAT gross conversion confirmed. PLAN.md §10.4."
+price: "€149 net per person — TBC gross (19% VAT conversion not yet confirmed, PLAN.md §10.4)."
 status: "review"
 heroImage: "../../assets/images/course-beginner-hero.jpg"
 heroImageAlt: "A rainbow-style uramaki roll with salmon, tuna and avocado, sliced and arranged on a white boat-shaped dish."
 reviewNotes:
   - "Duration conflict: the site-structure brief says \"2 Days\"; the course document says \"One day, 2–3 hours\". Used the course document's figure here as the more specific source — please confirm which is correct."
-  - "Price resolved to €149 (new) over €99 (old, matches the legacy site's fee for this course exactly) per the owner's instruction. Still net, not gross — do not publish until VAT treatment is confirmed (PLAN.md §10.4)."
-  - "Photo is reused from the legacy site (a product/plating shot, no people in it, so no consent question) — swap for new photography once it exists (PLAN.md §13)."
 ---
 
 A hands-on introduction to traditional Japanese sushi. In a single session

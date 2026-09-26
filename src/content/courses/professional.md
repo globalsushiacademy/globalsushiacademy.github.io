@@ -13,7 +13,6 @@ heroImageAlt: "An avocado-topped sushi roll garnished with micro herbs and a cit
 reviewNotes:
   - "Duration conflict: the site-structure brief says \"2 Weeks\" for a 'Professional' course; the course document describes an 8-week program. Used the course document's figure here — please confirm which is correct, and whether \"2 weeks\" actually refers to the separate Advanced Professional (1:1) course."
   - "Placement wording rewritten for legal compliance. The source document said: \"we then place you personally in a sushi restaurant... with remuneration of €2,500 per month\" — a guaranteed-job-and-salary promise that is a misleading-advertising risk under §5 UWG and contradicts the Advanced Professional brief's own careful wording. Rewritten below to \"support connecting with partner restaurants and hotels,\" per the owner's own instruction recorded in PLAN.md §11.2. The €2,500/month figure has been removed entirely, not just reworded — please confirm nothing like it should be restored before publishing."
-  - "Photo is reused from the legacy site (a product/plating shot, no people in it, so no consent question) — swap for new photography once it exists (PLAN.md §13)."
 ---
 
 An intensive, hands-on program that takes you from your first cut to a

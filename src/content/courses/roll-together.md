@@ -13,7 +13,6 @@ heroImageAlt: "A wooden boat-shaped serving board filled with an assortment of c
 reviewNotes:
   - "This is the site-structure brief's \"Private VIP Course — One-to-One Training\" entry, under the course document's own name, \"Roll Together\". Confirm the public-facing name (\"Private VIP\" vs. \"Roll Together\") before publishing."
   - "For private events at the guest's own location, the source document notes a minimum participant count and possible travel costs apply, without giving numbers — needs the owner's actual minimums/travel-cost policy, marked TBC below rather than invented."
-  - "Photo is reused from the legacy site (a product/plating shot, no people in it, so no consent question) — swap for new photography once it exists (PLAN.md §13)."
 ---
 
 An exclusive evening with the chefs of Global Sushi Academy. Learn to
