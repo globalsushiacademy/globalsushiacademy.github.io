@@ -8,9 +8,12 @@ level: "All levels — the curriculum is built around your experience"
 price: "TBC — the course document quotes \"from €3,900 net (without Tax)\"; needs a confirmed gross starting price. PLAN.md §11.1, §10.4."
 certificate: "Global Sushi Academy Professional Sushi Chef Certificate"
 status: "review"
+heroImage: "../../assets/images/course-advanced-professional-hero.jpg"
+heroImageAlt: "A single serving of asparagus and avocado uramaki rolls, drizzled with sauce and garnished with micro herbs."
 reviewNotes:
   - "Not listed in the site-structure brief's five-tier list at all — it exists only as its own course document. Confirm this is a real, currently-offered course distinct from the 8-week Professional Sushi Chef Program, and check whether the brief's \"2 Weeks\" Professional tier was actually meant to describe this course."
   - "This document's placement wording was already compliant in the source (visas/permits decided solely by German authorities, no guarantee of employment) — reused as-is, no rewrite needed."
+  - "Photo is reused from the legacy site (a product/plating shot, no people in it, so no consent question) — swap for new photography once it exists (PLAN.md §13)."
 ---
 
 Two weeks of private, one-to-one training that takes you from your first

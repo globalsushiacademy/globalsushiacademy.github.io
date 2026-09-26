@@ -1,11 +1,71 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Placeholder from '../components/Placeholder.astro';
+import ReviewNotice from '../components/ReviewNotice.astro';
+import handsOnClass1 from '../assets/images/gallery-hands-on-class-1.jpg';
+import handsOnClass2 from '../assets/images/gallery-hands-on-class-2.jpg';
+import graduationGroup from '../assets/images/gallery-graduation-group.jpg';
+import academyBuilding from '../assets/images/gallery-academy-building.jpg';
+import beginnerFood from '../assets/images/course-beginner-hero.jpg';
+import professionalFood from '../assets/images/course-professional-hero.jpg';
+import advancedFood from '../assets/images/course-advanced-professional-hero.jpg';
+import rollTogetherFood from '../assets/images/course-roll-together-hero.jpg';
+
+const photos = [
+  {
+    src: handsOnClass1,
+    alt: 'A student rolls sushi under an instructor\'s guidance at a shared classroom table, with several other students preparing their own plates alongside.',
+  },
+  {
+    src: handsOnClass2,
+    alt: 'A group of students in academy chef whites gathers around a kitchen island while an instructor demonstrates fish preparation.',
+  },
+  {
+    src: graduationGroup,
+    alt: 'A group of graduates in academy chef whites poses together in a classroom, each holding a plate of sushi they made.',
+  },
+  { src: beginnerFood, alt: 'A rainbow-style uramaki roll with salmon, tuna and avocado, plated on a white boat-shaped dish.' },
+  { src: professionalFood, alt: 'An avocado-topped sushi roll garnished with micro herbs and a citrus glaze.' },
+  { src: advancedFood, alt: 'A serving of asparagus and avocado uramaki rolls, drizzled with sauce and garnished with micro herbs.' },
+  { src: rollTogetherFood, alt: 'A wooden boat-shaped serving board filled with an assortment of colourful sushi rolls.' },
+  {
+    src: academyBuilding,
+    alt: 'The exterior of a brick gothic-revival building in Lübeck.',
+    width: 304, // native resolution of this one legacy file — do not upscale
+  },
+];
 ---
 
-<BaseLayout title="Gallery" description="Photographs of students, training and certificates.">
-  <Placeholder
-    heading="Gallery"
-    blockedOn="photography — the 2019 legacy images will not carry this design (PLAN.md §13)"
-  />
+<BaseLayout
+  title="Gallery"
+  description="Photographs of students, training and the academy."
+  noindex={true}
+>
+  <section class="mx-auto max-w-6xl px-4 py-20">
+    <p class="text-xs uppercase tracking-widest text-[var(--color-accent)]">Gallery</p>
+    <h1 class="mt-3 font-[family-name:var(--font-display)] text-4xl">From the Academy</h1>
+
+    <div class="mt-6 max-w-2xl">
+      <ReviewNotice
+        notes={[
+          'These are legacy photos from the old website (2019–2021), reused here at your instruction. An earlier planning note in this codebase said 2019 images "will not carry this design" — that call is overridden by your direct request, but the visual fit is still worth a look once this is live on staging.',
+          'The class/training photos show identifiable students. They were already public on the old site, but nobody has confirmed those students consented to appearing on the redesigned site too — this page is noindex and should stay that way until Vikunja #134 (collect written consent for student photos) is resolved, or these photos are swapped for ones with confirmed consent.',
+          "The founder's own portrait (used on the About page) and the plated-food shots have no consent question — no identifiable third parties in them.",
+        ]}
+      />
+    </div>
+
+    <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        photos.map((photo) => (
+          <Image
+            src={photo.src}
+            alt={photo.alt}
+            width={photo.width ?? 640}
+            class="aspect-[4/3] w-full object-cover"
+          />
+        ))
+      }
+    </div>
+  </section>
 </BaseLayout>

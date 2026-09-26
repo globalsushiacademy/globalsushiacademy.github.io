@@ -7,9 +7,12 @@ format: "Practical, hands-on training"
 level: "Complete beginners welcome"
 price: "TBC — the 2026 course document gives two different prices for the same session (€99 net in its header table, €149 net in its own \"Good to Know\" box), and neither is a gross figure. Needs one confirmed gross price from the owner. PLAN.md §11.1, §10.4."
 status: "review"
+heroImage: "../../assets/images/course-beginner-hero.jpg"
+heroImageAlt: "A rainbow-style uramaki roll with salmon, tuna and avocado, sliced and arranged on a white boat-shaped dish."
 reviewNotes:
   - "Duration conflict: the site-structure brief says \"2 Days\"; the course document says \"One day, 2–3 hours\". Used the course document's figure here as the more specific source — please confirm which is correct."
   - "Price conflict: see the price field. Do not publish either figure until the owner gives a single number and confirms it is gross (incl. 19% VAT)."
+  - "Photo is reused from the legacy site (a product/plating shot, no people in it, so no consent question) — swap for new photography once it exists (PLAN.md §13)."
 ---
 
 A hands-on introduction to traditional Japanese sushi. In a single session

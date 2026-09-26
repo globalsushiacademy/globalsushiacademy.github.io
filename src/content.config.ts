@@ -9,31 +9,34 @@ import { glob } from 'astro/loaders';
 
 const courses = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/courses' }),
-  schema: z.object({
-    title: z.string(),
-    order: z.number(),
-    tagline: z.string(),
-    duration: z.string(),
-    format: z.string(),
-    level: z.string(),
-    // Free text, not a typed amount: several source prices are still net-of-VAT
-    // or disputed between documents. Write "TBC — …" until a single gross
-    // figure is confirmed. Never invent a gross price by multiplying by 1.19.
-    price: z.string(),
-    certificate: z.string().optional(),
-    status: z.enum(['review', 'confirmed']),
-    // Freeform notes on what's provisional and why — surfaced on the page
-    // itself while status is 'review' so the owner sees exactly what to check.
-    reviewNotes: z.array(z.string()).default([]),
-    // Required together: a course can ship with no hero image, but never
-    // with an image and no alt text.
-    heroImage: z
+  schema: ({ image }) =>
+    z
       .object({
-        src: z.string(),
-        alt: z.string(),
+        title: z.string(),
+        order: z.number(),
+        tagline: z.string(),
+        duration: z.string(),
+        format: z.string(),
+        level: z.string(),
+        // Free text, not a typed amount: several source prices are still net-of-VAT
+        // or disputed between documents. Write "TBC — …" until a single gross
+        // figure is confirmed. Never invent a gross price by multiplying by 1.19.
+        price: z.string(),
+        certificate: z.string().optional(),
+        status: z.enum(['review', 'confirmed']),
+        // Freeform notes on what's provisional and why — surfaced on the page
+        // itself while status is 'review' so the owner sees exactly what to check.
+        reviewNotes: z.array(z.string()).default([]),
+        // `image()` validates the path resolves to a real asset and gives Astro
+        // an optimizable reference; kept as two fields (not one object) because
+        // content-collection `image()` helpers can't be nested inside z.object().
+        heroImage: image().optional(),
+        heroImageAlt: z.string().optional(),
       })
-      .optional(),
-  }),
+      .refine((data) => !data.heroImage || !!data.heroImageAlt, {
+        message: 'heroImageAlt is required whenever heroImage is set',
+        path: ['heroImageAlt'],
+      }),
 });
 
 const faq = defineCollection({

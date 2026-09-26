@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ReviewNotice from '../components/ReviewNotice.astro';
+import portrait from '../assets/images/about-founder-portrait.jpg';
 ---
 
 <BaseLayout title="About Us" description="The story of Global Sushi Academy and its founder, Ram Kaji Gosai.">
@@ -9,12 +11,19 @@ import ReviewNotice from '../components/ReviewNotice.astro';
     <h1 class="mt-3 font-[family-name:var(--font-display)] text-4xl">Ram Kaji Gosai</h1>
     <p class="mt-4 text-lg text-[var(--color-muted)]">Founder, Global Sushi Academy</p>
 
+    <Image
+      src={portrait}
+      alt="Ram Kaji Gosai, founder of Global Sushi Academy, in chef's whites holding a wooden boat-shaped sushi platter."
+      width={480}
+      class="mt-8 w-full max-w-sm object-cover sm:float-right sm:ml-8"
+    />
+
     <div class="mt-8">
       <ReviewNotice
         notes={[
           "Bio text is carried over from the legacy website's database, written before the 2026 rebrand — please check it still reads the way you want it to, and that every detail (years, places, names) is still accurate.",
           "The source text named the 2015 course as \"Volkschule Bad Schwartau\" — likely means the Volkshochschule (adult education center), but left as just \"a course in Bad Schwartau\" below rather than guessing. Please confirm the institution's actual name.",
-          'No professional portrait exists yet in the assets triaged so far — this page is text-only until one is taken or supplied (PLAN.md §13).',
+          "Portrait reused from the legacy site. It shows Ram himself, so there's no third-party consent question, but the banner visible behind him in the shot carries the old logo and the old domain — worth a tighter crop, a different photo, or a fresh one before this goes live.",
           "Dropped the legacy bio's mention of catering, home delivery and Nepalese-food service, since PLAN.md §11.4 flags that as unconfirmed for 2026 — reinstate once you've confirmed catering is still offered.",
         ]}
       />
