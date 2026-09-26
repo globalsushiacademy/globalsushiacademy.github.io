@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { useTranslations, localePath } from '../i18n/ui';
+import certPhoto from '../assets/images/gallery-certificate-1.jpg';
 
 const t = useTranslations('en');
 ---
@@ -9,40 +11,90 @@ const t = useTranslations('en');
   title="Global Sushi Academy"
   description="Professional sushi chef training in Lübeck, Germany. Learn authentic Japanese sushi from experienced instructors, from your first roll to a professional counter."
 >
-  <section class="mx-auto max-w-6xl px-4 py-20 md:py-28">
-    <p lang="ja" class="text-sm tracking-[0.3em] text-[var(--color-muted)]">
-      グローバル寿司アカデミー
-    </p>
-    <h1 class="mt-6 max-w-3xl font-[family-name:var(--font-display)] text-5xl leading-tight md:text-6xl">
-      From Beginner to<br />
-      <span class="text-[var(--color-accent)]">Professional Sushi Chef</span>
-    </h1>
-    <p class="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--color-muted)]">
-      Learn authentic Japanese sushi from experienced instructors in Germany.
-      Professional training, academy certification, and support in connecting
-      with partner restaurants.
-    </p>
+  <section class="bg-[var(--color-navy)] text-white">
+    <div class="mx-auto grid max-w-6xl gap-10 px-4 py-20 md:grid-cols-2 md:items-center md:gap-16 md:py-28">
+      <div class="hero-text">
+        <p lang="ja" class="text-sm tracking-[0.3em] text-white/60">
+          グローバル寿司アカデミー
+        </p>
+        <h1 class="mt-6 font-[family-name:var(--font-display)] text-5xl leading-tight md:text-6xl">
+          From Beginner to<br />
+          <span class="text-[var(--color-accent-on-dark)]">Professional Sushi Chef</span>
+        </h1>
+        <p class="mt-8 max-w-md text-lg leading-relaxed text-white/80">
+          Learn authentic Japanese sushi from experienced instructors in Germany.
+          Professional training, academy certification, and support in connecting
+          with partner restaurants.
+        </p>
 
-    <div class="mt-10 flex flex-wrap gap-4">
-      <a
-        href={localePath('en', '/courses')}
-        class="bg-[var(--color-accent)] px-6 py-3 text-white transition-opacity hover:opacity-90"
-      >
-        {t('cta.courses')}
-      </a>
-      <a
-        href={localePath('en', '/contact')}
-        class="border border-[var(--color-ink)] px-6 py-3 transition-colors hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
-      >
-        {t('cta.contact')}
-      </a>
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a
+            href={localePath('en', '/courses')}
+            class="bg-[var(--color-accent)] px-6 py-3 text-white transition-opacity hover:opacity-90"
+          >
+            {t('cta.courses')}
+          </a>
+          <a
+            href={localePath('en', '/contact')}
+            class="border border-white/40 px-6 py-3 text-white transition-colors hover:border-[var(--color-accent-on-dark)] hover:text-[var(--color-accent-on-dark)]"
+          >
+            {t('cta.contact')}
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-image relative">
+        <Image
+          src={certPhoto}
+          alt="Ram Kaji Gosai, founder of Global Sushi Academy, presents a framed Professional Sushi Chef Course certificate to a graduate."
+          width={720}
+          class="w-full object-cover"
+        />
+        <p class="absolute -bottom-4 left-4 border-l-4 border-[var(--color-gold)] bg-[var(--color-navy)] py-2 pl-4 pr-5 text-sm text-white/90">
+          Certified graduates, Lübeck
+        </p>
+      </div>
     </div>
   </section>
 
   <!--
-    TODO(content): course tiers, certification, testimonials and gallery
-    sections go here. All four are blocked on PLAN.md §11 (the source briefs
-    disagree on the course list, durations and prices) and §13 (photography).
-    Do not fill these with invented copy or placeholder testimonials.
+    TODO(content): course tiers, certification and testimonials sections go
+    here. Blocked on PLAN.md §11 (the source briefs disagree on the course
+    list, durations and prices) and, for testimonials, on real reviews
+    existing at all. Do not fill these with invented copy or placeholder
+    testimonials. The Gallery now has real photos — see /gallery.
   -->
+
+  <style>
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-text {
+        animation: hero-text-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      .hero-image {
+        animation: hero-image-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+      }
+    }
+
+    @keyframes hero-text-in {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes hero-image-in {
+      from {
+        opacity: 0;
+        transform: scale(1.04);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
 </BaseLayout>

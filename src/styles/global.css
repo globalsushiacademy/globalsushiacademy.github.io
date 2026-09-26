@@ -56,6 +56,14 @@
  * Red is a 1% colour: CTAs, rules, and the numbered module markers used
  * throughout the course content. The moment it becomes a background fill,
  * the site reads as a restaurant.
+ *
+ * --color-navy and --color-gold are sampled directly from the academy's own
+ * crest (dominant pixel colours in src/assets/brand/logo-crest.png: #002060
+ * and #d08020, both softened slightly for screen contrast) — not decoration,
+ * they're the actual colour of the certificate photos too (navy card, gold
+ * seal). Used deliberately sparingly: navy as the one full-bleed dark
+ * section (hero, footer), gold as a single thin rule/accent on certificate
+ * moments. Neither is a general-purpose accent — red keeps that job.
  */
 @theme {
   --color-bg: #ffffff;
@@ -63,6 +71,13 @@
   --color-muted: #6b6b6b;
   --color-accent: #b91c1c;   /* Japanese red */
   --color-line: #e5e5e5;
+  --color-navy: #0e2a5e;
+  --color-gold: #c1872f;
+  /* --color-accent (#b91c1c) is 2.1:1 on navy — fails WCAG AA text contrast.
+     This is the same red, lightened only for use on the navy footer/hero;
+     never use it on the white background, where the base accent already
+     passes. */
+  --color-accent-on-dark: #f87171;
 
   --font-sans: "Noto Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;

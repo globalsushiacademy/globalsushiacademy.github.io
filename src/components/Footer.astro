@@ -21,7 +21,9 @@ const legal = [
 ];
 ---
 
-<footer class="mt-16 border-t border-[var(--color-line)] bg-[var(--color-ink)] text-white">
+<footer
+  class="mt-16 border-t border-[var(--color-line)] bg-[var(--color-navy)] text-white [&_:focus-visible]:outline-[var(--color-accent-on-dark)]"
+>
   <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:grid-cols-2 md:grid-cols-3">
     <div>
       <p lang="ja" class="text-xs tracking-widest text-white/60">グローバル寿司アカデミー</p>
@@ -37,12 +39,12 @@ const legal = [
       <h2 class="text-xs uppercase tracking-widest text-white/60">{t('nav.contact')}</h2>
       <ul class="mt-3 space-y-2 text-sm">
         <li>
-          <a href="tel:+4915257560040" class="hover:text-[var(--color-accent)]">
+          <a href="tel:+4915257560040" class="hover:text-[var(--color-accent-on-dark)]">
             +49 1525 7560040
           </a>
         </li>
         <li>
-          <a href="mailto:info@globalsushiacademy.com" class="hover:text-[var(--color-accent)]">
+          <a href="mailto:info@globalsushiacademy.com" class="hover:text-[var(--color-accent-on-dark)]">
             info@globalsushiacademy.com
           </a>
         </li>
@@ -51,7 +53,7 @@ const legal = [
         {
           secondary.map((item) => (
             <li>
-              <a href={localePath(lang, item.href)} class="hover:text-[var(--color-accent)]">
+              <a href={localePath(lang, item.href)} class="hover:text-[var(--color-accent-on-dark)]">
                 {item.label}
               </a>
             </li>
@@ -66,7 +68,7 @@ const legal = [
         {
           legal.map((item) => (
             <li>
-              <a href={localePath(lang, item.href)} class="hover:text-[var(--color-accent)]">
+              <a href={localePath(lang, item.href)} class="hover:text-[var(--color-accent-on-dark)]">
                 {item.label}
               </a>
             </li>
