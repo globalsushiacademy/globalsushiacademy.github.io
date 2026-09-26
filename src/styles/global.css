@@ -1,6 +1,53 @@
 @import "tailwindcss";
 
 /*
+ * Self-hosted webfonts (PLAN.md §8, CLAUDE.md "Choose and self-host
+ * webfonts"). Files live in src/assets/fonts/ and are served from this
+ * domain — never fonts.googleapis.com, which sends visitor IPs to Google
+ * and is the most commonly abmahnt GDPR mistake on German sites.
+ *
+ * Latin-only subsets: English + German both fit inside Latin-1 (U+0000–
+ * 00FF, which covers ä/ö/ü/ß), so the latin-ext files Google also offers
+ * are unused dead weight and were not committed.
+ *
+ * Noto Sans is shipped as its variable instance — one file, `font-weight:
+ * 100 900` covers every weight the body text uses. Zen Old Mincho has no
+ * variable axis, so 400 and 700 are separate files.
+ */
+@font-face {
+  font-family: "Noto Sans";
+  src: url("../assets/fonts/noto-sans-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U[REDACTED-PHONE]F, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Zen Old Mincho";
+  src: url("../assets/fonts/zen-old-mincho-400-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U[REDACTED-PHONE]F, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Zen Old Mincho";
+  src: url("../assets/fonts/zen-old-mincho-700-latin.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U[REDACTED-PHONE]F, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+/*
  * Design tokens — see PLAN.md §8.
  *
  * Direction from the owner's brief: professional culinary school, not a
@@ -17,13 +64,9 @@
   --color-accent: #b91c1c;   /* Japanese red */
   --color-line: #e5e5e5;
 
-  /* TODO(fonts): self-host webfonts in src/assets/fonts/ and switch these.
-     Do NOT load Google Fonts from their CDN — it sends visitor IPs to
-     Google and is the most commonly abmahnt GDPR mistake on German sites.
-     See the german-web-compliance skill. */
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+  --font-sans: "Noto Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
-  --font-display: ui-serif, Georgia, Cambria, "Times New Roman", serif;
+  --font-display: "Zen Old Mincho", ui-serif, Georgia, Cambria, "Times New Roman", serif;
 }
 
 html {
@@ -47,4 +90,54 @@ body {
   html {
     scroll-behavior: auto;
   }
+}
+
+/*
+ * Long-form content rendered from a content collection's Markdown body
+ * (course pages, eventually FAQ/about). Deliberately hand-rolled rather than
+ * @tailwindcss/typography — one utility-class-free block is simpler than an
+ * extra dependency for the handful of elements this content actually uses.
+ */
+.markdown-body {
+  max-width: 65ch;
+}
+
+.markdown-body > * + * {
+  margin-top: 1.25em;
+}
+
+.markdown-body h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin-top: 2em;
+}
+
+.markdown-body p {
+  color: var(--color-ink);
+  line-height: 1.7;
+}
+
+.markdown-body ul {
+  list-style: disc;
+  padding-left: 1.5em;
+}
+
+.markdown-body ul > * + * {
+  margin-top: 0.4em;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body a {
+  color: var(--color-accent);
+  text-underline-offset: 2px;
+}
+
+.markdown-body blockquote {
+  border-left: 2px solid var(--color-accent);
+  padding-left: 1em;
+  color: var(--color-muted);
+  font-size: 0.95em;
 }

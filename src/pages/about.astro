@@ -1,11 +1,75 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Placeholder from '../components/Placeholder.astro';
+import ReviewNotice from '../components/ReviewNotice.astro';
 ---
 
-<BaseLayout title="About Us" description="The story of Global Sushi Academy and its founder.">
-  <Placeholder
-    heading="About Us"
-    blockedOn="the founder biography and a professional portrait (PLAN.md §13)"
-  />
+<BaseLayout title="About Us" description="The story of Global Sushi Academy and its founder, Ram Kaji Gosai.">
+  <section class="mx-auto max-w-3xl px-4 py-20">
+    <p class="text-xs uppercase tracking-widest text-[var(--color-accent)]">About Us</p>
+    <h1 class="mt-3 font-[family-name:var(--font-display)] text-4xl">Ram Kaji Gosai</h1>
+    <p class="mt-4 text-lg text-[var(--color-muted)]">Founder, Global Sushi Academy</p>
+
+    <div class="mt-8">
+      <ReviewNotice
+        notes={[
+          "Bio text is carried over from the legacy website's database, written before the 2026 rebrand — please check it still reads the way you want it to, and that every detail (years, places, names) is still accurate.",
+          "The source text named the 2015 course as \"Volkschule Bad Schwartau\" — likely means the Volkshochschule (adult education center), but left as just \"a course in Bad Schwartau\" below rather than guessing. Please confirm the institution's actual name.",
+          'No professional portrait exists yet in the assets triaged so far — this page is text-only until one is taken or supplied (PLAN.md §13).',
+          "Dropped the legacy bio's mention of catering, home delivery and Nepalese-food service, since PLAN.md §11.4 flags that as unconfirmed for 2026 — reinstate once you've confirmed catering is still offered.",
+        ]}
+      />
+    </div>
+
+    <div class="markdown-body mt-10">
+      <p>
+        Global Sushi Academy is a premier sushi school in Europe, based in Germany. Ram Kaji
+        Gosai started Global Sushi Academy with the aim of helping people realize their dreams
+        of becoming a top sushi chef — and to promote sushi and other Asian dishes as delicious,
+        healthy food throughout the world.
+      </p>
+
+      <h2>Ram's story</h2>
+
+      <p>
+        Ram Kaji Gosai was born in Bhaktapur, Nepal — the birthplace of Buddha and home to the
+        tallest mountain in the world, Mt. Everest.
+      </p>
+
+      <p>
+        At the age of 18, Ram started his culinary journey working at a small restaurant. He
+        worked there for three years, learning both Western and Japanese cuisines.
+      </p>
+
+      <p>
+        In 1999, Ram started his own restaurant in Nepal and got an early taste of
+        entrepreneurship. He ran it for three years before, driven by big dreams and high
+        ambitions, moving to Europe in 2002.
+      </p>
+
+      <p>
+        A hard-working and determined person, Ram gained extensive experience across Europe,
+        working with top Japanese and Nepalese sushi masters in the Netherlands, Spain, Portugal
+        and Norway, and at major hotels including Ostsee Scharbeutz in Schleswig-Holstein,
+        Germany.
+      </p>
+
+      <p>
+        In 2015, Ram took a sushi course in Bad Schwartau, Germany, and completed a private
+        Advanced Sushi Chef course in Los Angeles, USA, under the renowned Japanese sushi master
+        Andy Matsuda.
+      </p>
+
+      <p>
+        After many years working in top restaurants and hotels, Ram returned to his
+        entrepreneurial ambitions and set out to help others learn the art of sushi making. In
+        July 2016, he opened Global Sushi Academy — a sushi school dedicated to training the
+        next generation of sushi chefs.
+      </p>
+
+      <p>
+        Through Global Sushi Academy, Ram's mission is to train enthusiastic, dedicated students
+        to a professional standard and to promote healthy Japanese cuisine around the globe.
+      </p>
+    </div>
+  </section>
 </BaseLayout>

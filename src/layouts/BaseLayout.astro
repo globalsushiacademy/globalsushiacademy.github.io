@@ -3,6 +3,8 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getLangFromUrl, useTranslations, alternatePath, localePath } from '../i18n/ui';
+import notoSansUrl from '../assets/fonts/noto-sans-latin.woff2?url';
+import zenOldMinchoUrl from '../assets/fonts/zen-old-mincho-400-latin.woff2?url';
 
 interface Props {
   title: string;
@@ -28,6 +30,11 @@ const fullTitle = title === t('site.name') ? title : `${title} | ${t('site.name'
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Self-hosted, same-origin — no third-party font request (CLAUDE.md). -->
+    <link rel="preload" href={notoSansUrl} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={zenOldMinchoUrl} as="font" type="font/woff2" crossorigin />
+
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical.href} />
