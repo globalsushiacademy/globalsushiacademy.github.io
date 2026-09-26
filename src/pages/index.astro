@@ -1,10 +1,55 @@
 ---
+import { getCollection, getEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { useTranslations, localePath } from '../i18n/ui';
 import certPhoto from '../assets/images/gallery-certificate-1.jpg';
+import galleryCert2 from '../assets/images/gallery-certificate-2.jpg';
+import galleryCertGroup from '../assets/images/gallery-certificate-group.jpg';
+import galleryHandsOn from '../assets/images/gallery-hands-on-class-1.jpg';
+import galleryFood from '../assets/images/course-roll-together-hero.jpg';
 
 const t = useTranslations('en');
+
+// Only the four courses with a real source document get a homepage teaser —
+// Intermediate and Master Sushi Chef are one-line stubs with no curriculum
+// (see PLAN.md §11.1) and aren't ready to be featured.
+const featuredCourseIds = ['beginner', 'professional', 'advanced-professional', 'roll-together'];
+const courses = (
+  await Promise.all(featuredCourseIds.map((id) => getEntry('courses', id)))
+).filter((c) => c !== undefined);
+
+const benefits = [
+  {
+    title: 'Hands-on from the first cut',
+    body: 'Every course is practical training at the board, not a lecture — you leave able to make what you learned, not just describe it.',
+  },
+  {
+    title: 'Taught by an internationally trained chef',
+    body: "Founder Ram Kaji Gosai trained under sushi masters across Japan, the Netherlands, Spain, Portugal and Norway before opening the academy in Lübeck.",
+  },
+  {
+    title: 'A certificate when you finish',
+    body: 'Every course ends with an academy-issued certificate, awarded in person — proof of the training you completed.',
+  },
+  {
+    title: 'One-to-one and small-group options',
+    body: 'Beyond the standard courses, train privately with the Advanced Professional program or book a private group evening with Roll Together.',
+  },
+];
+
+const paths = [
+  { href: '/certification', label: 'Certification', body: 'What the academy certificate is, and what it isn’t.' },
+  { href: '/career', label: 'Career', body: 'Support connecting with partner restaurants after longer courses.' },
+  { href: '/international-students', label: 'International Students', body: 'Guidance on registration, accommodation and getting settled.' },
+];
+
+const galleryTeaser = [
+  { src: galleryCertGroup, alt: 'Three graduates holding their framed certificates.' },
+  { src: galleryCert2, alt: 'Ram Kaji Gosai presenting a framed certificate to a graduate.' },
+  { src: galleryHandsOn, alt: "A student rolls sushi under an instructor's guidance." },
+  { src: galleryFood, alt: 'A wooden boat-shaped serving board filled with sushi rolls.' },
+];
 ---
 
 <BaseLayout
@@ -30,13 +75,13 @@ const t = useTranslations('en');
         <div class="mt-10 flex flex-wrap gap-4">
           <a
             href={localePath('en', '/courses')}
-            class="bg-[var(--color-accent)] px-6 py-3 text-white transition-opacity hover:opacity-90"
+            class="bg-[var(--color-gold)] px-6 py-3 text-[var(--color-ink)] transition-opacity hover:opacity-90"
           >
             {t('cta.courses')}
           </a>
           <a
             href={localePath('en', '/contact')}
-            class="border border-white/40 px-6 py-3 text-white transition-colors hover:border-[var(--color-accent-on-dark)] hover:text-[var(--color-accent-on-dark)]"
+            class="border border-white/40 px-6 py-3 text-white transition-colors hover:border-white hover:bg-white/10"
           >
             {t('cta.contact')}
           </a>
@@ -57,12 +102,101 @@ const t = useTranslations('en');
     </div>
   </section>
 
+  <section class="reveal mx-auto max-w-6xl px-4 py-20">
+    <h2 class="font-[family-name:var(--font-display)] text-3xl">Why Global Sushi Academy</h2>
+    <div class="mt-10 grid gap-8 sm:grid-cols-2">
+      {
+        benefits.map((b) => (
+          <div class="border-t-2 border-[var(--color-gold)] pt-4">
+            <h3 class="font-[family-name:var(--font-display)] text-lg">{b.title}</h3>
+            <p class="mt-2 text-[var(--color-muted)]">{b.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="reveal border-t border-[var(--color-line)] bg-[var(--color-line)]/40 py-20">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <h2 class="font-[family-name:var(--font-display)] text-3xl">Courses</h2>
+        <a href={localePath('en', '/courses')} class="text-sm text-[var(--color-accent)] hover:underline">
+          Compare all courses →
+        </a>
+      </div>
+
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          courses.map((course) => (
+            <a
+              href={localePath('en', `/courses/${course.id}`)}
+              class="block border border-[var(--color-line)] bg-[var(--color-bg)] transition hover:border-[var(--color-accent)]"
+            >
+              {course.data.heroImage && (
+                <Image
+                  src={course.data.heroImage}
+                  alt=""
+                  width={360}
+                  class="h-32 w-full object-cover"
+                />
+              )}
+              <div class="p-4">
+                <h3 class="font-[family-name:var(--font-display)] text-base">{course.data.title}</h3>
+                <p class="mt-1 text-xs text-[var(--color-muted)]">{course.data.duration}</p>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal mx-auto max-w-6xl px-4 py-20">
+    <h2 class="font-[family-name:var(--font-display)] text-3xl">Your Path After Training</h2>
+    <div class="mt-10 grid gap-6 sm:grid-cols-3">
+      {
+        paths.map((p) => (
+          <a
+            href={localePath('en', p.href)}
+            class="block border border-[var(--color-line)] p-6 transition hover:border-[var(--color-accent)]"
+          >
+            <h3 class="font-[family-name:var(--font-display)] text-lg">{p.label}</h3>
+            <p class="mt-2 text-sm text-[var(--color-muted)]">{p.body}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="reveal border-t border-[var(--color-line)] py-20">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <h2 class="font-[family-name:var(--font-display)] text-3xl">From the Academy</h2>
+        <a href={localePath('en', '/gallery')} class="text-sm text-[var(--color-accent)] hover:underline">
+          View gallery →
+        </a>
+      </div>
+      <div class="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-4">
+        {
+          galleryTeaser.map((photo) => (
+            <a href={localePath('en', '/gallery')} class="group block aspect-square overflow-hidden">
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                width={480}
+                class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+              />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
   <!--
-    TODO(content): course tiers, certification and testimonials sections go
-    here. Blocked on PLAN.md §11 (the source briefs disagree on the course
-    list, durations and prices) and, for testimonials, on real reviews
-    existing at all. Do not fill these with invented copy or placeholder
-    testimonials. The Gallery now has real photos — see /gallery.
+    Testimonials section deliberately not built: no real reviews exist yet
+    and CLAUDE.md forbids inventing them, even as placeholders (§5b Abs. 3
+    UWG). Add a section here once the owner supplies real ones.
   -->
 
   <style>

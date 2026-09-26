@@ -108,6 +108,45 @@ body {
 }
 
 /*
+ * Scroll reveal, CSS-only (no JS island). `animation-timeline: view()` ties
+ * the animation's progress to the element's position in the scrollport
+ * instead of a wall-clock delay, so it plays once as each section enters
+ * view. Both guards are load-bearing:
+ *  - `@supports` means browsers without scroll-driven-animations support
+ *    (this rule and its `opacity: 0` never apply to them) just see the
+ *    content, immediately, at full opacity — never stuck invisible.
+ *  - `prefers-reduced-motion: no-preference` opts out anyone who's asked
+ *    for less motion, for the same reason.
+ * Use sparingly — on the handful of new homepage sections, not everywhere.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      animation-name: reveal-in;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      /* A scroll-driven animation's pacing comes entirely from
+         animation-range below, not wall-clock time — but a 0s/omitted
+         duration (the shorthand's default) makes browsers treat the
+         animation as zero-length and skip straight to its end state,
+         which is why this needs a nonzero placeholder at all. */
+      animation-duration: 1ms;
+      animation-timeline: view();
+      animation-range: entry 0% cover 25%;
+    }
+  }
+}
+
+@keyframes reveal-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*
  * Long-form content rendered from a content collection's Markdown body
  * (course pages, eventually FAQ/about). Deliberately hand-rolled rather than
  * @tailwindcss/typography — one utility-class-free block is simpler than an
