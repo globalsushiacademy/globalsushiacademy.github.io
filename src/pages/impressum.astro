@@ -3,20 +3,87 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import LegalStub from '../components/LegalStub.astro';
 
 const items = [
-  "Vollständiger Name und Rechtsform des Betreibers",
-  "Vollständige Postanschrift (kein Postfach)",
-  "E-Mail-Adresse (Pflicht) und eine zweite schnelle Kontaktmöglichkeit, z. B. Telefonnummer",
-  "Registergericht und Registernummer, sofern eingetragen",
-  "Umsatzsteuer-Identifikationsnummer nach § 27a UStG, sofern vorhanden",
-  "Verantwortliche Person für redaktionelle Inhalte nach § 18 Abs. 2 MStV, sofern Blog/News",
-  "OFFEN: Welche juristische Person betreibt die Seite? Die Altdatenbank nennt sowohl die Lübecker Anschrift als auch GLOBAL SUSHI ACADEMY PVT. LTD., Reg.-Nr. 187998, Bhaktapur, Nepal."
+  "Rechtsform des Betreibers — identisch mit der Rechtsform von Manna Sushi & Grill (gleicher Inhaber, gleiche Adresse), oder eine eigene Registrierung? Ram wusste es beim Nachfragen selbst nicht sicher.",
+  "Registergericht und Registernummer, falls im Handelsregister eingetragen.",
+  "Umsatzsteuer-Identifikationsnummer nach § 27a UStG. Manna Sushi & Grill nennt DE309238027 — ob dieselbe Nummer hier gilt, hängt von der obigen Frage ab.",
 ];
 ---
 
 <BaseLayout title="Impressum" description="Anbieterkennzeichnung nach § 5 DDG." noindex={true}>
   <LegalStub
     heading="Impressum"
-    intro="Pflichtangaben nach § 5 DDG. Diese Seite muss von jeder Seite aus mit höchstens zwei Klicks erreichbar sein."
+    intro="Angaben gemäß § 5 DDG. Struktur nach dem Vorlagen-Aufbau von e-recht24.de, wie ihn auch manna-restaurants.de (Schwesterbetrieb, gleicher Inhaber) verwendet."
     items={items}
-  />
+  >
+    <h2>Angaben gemäß § 5 DDG</h2>
+    <p>
+      Ram Kaji Gosai<br />
+      Global Sushi Academy<br />
+      Marienkirchhof 2–3<br />
+      23552 Lübeck<br />
+      Deutschland
+    </p>
+
+    <h2>Kontakt</h2>
+    <p>
+      Telefon: +49 1525 7560040<br />
+      E-Mail: info@globalsushiacademy.com
+    </p>
+
+    <h2>Registereintrag</h2>
+    <p>TBC — Eintragung im Handelsregister, falls vorhanden.</p>
+
+    <h2>Umsatzsteuer-ID</h2>
+    <p>TBC — Umsatzsteuer-Identifikationsnummer nach § 27a UStG.</p>
+
+    <h2>Redaktionell verantwortlich</h2>
+    <p>
+      Entfällt derzeit: diese Website enthält keine journalistisch-redaktionellen Inhalte (z. B.
+      einen Blog). Sollte ein Blog hinzukommen, ist ein Verantwortlicher nach § 18 Abs. 2 MStV zu
+      benennen.
+    </p>
+
+    <h2>Haftung für Inhalte</h2>
+    <p>
+      Als Diensteanbieter sind wir gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach
+      den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter
+      jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu
+      überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit
+      hinweisen.
+    </p>
+    <p>
+      Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den
+      allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch
+      erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei
+      Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend
+      entfernen.
+    </p>
+
+    <h2>Haftung für Links</h2>
+    <p>
+      Unser Angebot enthält Links zu externen Websites Dritter (zum Beispiel Manna Sushi &amp;
+      Grill), auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden
+      Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der
+      jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden
+      zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte
+      waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle
+      der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht
+      zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend
+      entfernen.
+    </p>
+
+    <h2>Urheberrecht</h2>
+    <p>
+      Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen
+      dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der
+      Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung
+      des jeweiligen Autors bzw. Erstellers.
+    </p>
+
+    <h2>Verbraucherstreitbeilegung</h2>
+    <p>
+      Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer
+      Verbraucherschlichtungsstelle teilzunehmen.
+    </p>
+  </LegalStub>
 </BaseLayout>

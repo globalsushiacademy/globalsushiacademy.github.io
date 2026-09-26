@@ -112,6 +112,12 @@ body {
   margin-top: 2em;
 }
 
+.markdown-body h3 {
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-top: 1.5em;
+}
+
 .markdown-body p {
   color: var(--color-ink);
   line-height: 1.7;
