@@ -1,0 +1,22 @@
+---
+/**
+ * Stand-in for a course photo when none exists yet — Intermediate and
+ * Master Sushi Chef have no source document, so a real photo would imply
+ * a specific curriculum that hasn't been confirmed (PLAN.md §11.1). A
+ * simple line-art mark reads as "illustrative, not photographed" rather
+ * than leaving a blank card.
+ */
+interface Props {
+  class?: string;
+  iconSize?: number;
+}
+const { class: className = '', iconSize = 40 } = Astro.props;
+---
+
+<div class={`flex items-center justify-center bg-[var(--color-line)] ${className}`}>
+  <svg viewBox="0 0 64 64" width={iconSize} height={iconSize} fill="none" aria-hidden="true">
+    <circle cx="32" cy="32" r="26" stroke="var(--color-navy)" stroke-width="2.5" />
+    <circle cx="32" cy="32" r="16" stroke="var(--color-navy)" stroke-width="2" stroke-dasharray="3 3" />
+    <circle cx="32" cy="32" r="5" fill="var(--color-gold)" />
+  </svg>
+</div>

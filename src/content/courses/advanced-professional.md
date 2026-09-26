@@ -9,7 +9,7 @@ price: "TBC — the course document quotes \"from €3,900 net (without Tax)\"; 
 certificate: "Global Sushi Academy Professional Sushi Chef Certificate"
 status: "review"
 heroImage: "../../assets/images/course-advanced-professional-hero.jpg"
-heroImageAlt: "A single serving of asparagus and avocado uramaki rolls, drizzled with sauce and garnished with micro herbs."
+heroImageAlt: "A chef in a red scarf uses chopsticks to add a delicate garnish to a sushi roll finished with gold leaf."
 reviewNotes:
   - "Not listed in the site-structure brief's five-tier list at all — it exists only as its own course document. Confirm this is a real, currently-offered course distinct from the 8-week Professional Sushi Chef Program, and check whether the brief's \"2 Weeks\" Professional tier was actually meant to describe this course."
   - "This document's placement wording was already compliant in the source (visas/permits decided solely by German authorities, no guarantee of employment) — reused as-is, no rewrite needed."
