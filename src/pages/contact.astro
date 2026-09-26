@@ -1,11 +1,40 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Placeholder from '../components/Placeholder.astro';
+import ReviewNotice from '../components/ReviewNotice.astro';
+
+const mapsHref =
+  'https://www.google.com/maps/search/?api=1&query=Marienkirchhof%202-3%2C%2023552%20L%C3%BCbeck%2C%20Germany';
 ---
 
 <BaseLayout title="Contact" description="Contact Global Sushi Academy in Lübeck, Germany.">
-  <Placeholder
-    heading="Contact"
-    blockedOn="the contact-form decision (PLAN.md §9.1). No Google Maps embed — see §10"
-  />
+  <section class="mx-auto max-w-3xl px-4 py-20">
+    <p class="text-xs uppercase tracking-widest text-[var(--color-accent)]">Contact</p>
+    <h1 class="mt-3 font-[family-name:var(--font-display)] text-4xl">Get in Touch</h1>
+
+    <div class="mt-6">
+      <ReviewNotice
+        notes={[
+          'No contact form yet — this is deliberate for launch (PLAN.md §9.1, Vikunja #152 still open). Direct phone/email/WhatsApp only, matching the "no backend" recommendation.',
+          "Google Maps is a plain link out (like manna-restaurants.de does), not an embed, so it needs no cookie-consent banner — matches CLAUDE.md's no-third-party-embed rule.",
+        ]}
+      />
+    </div>
+
+    <div class="mt-10 markdown-body">
+      <address class="not-italic">
+        <strong>Global Sushi Academy</strong><br />
+        Marienkirchhof 2–3<br />
+        23552 Lübeck, Germany
+      </address>
+
+      <p>
+        Phone: <a href="tel:+4915257560040">+49 1525 7560040</a><br />
+        Email: <a href="mailto:info@globalsushiacademy.com">info@globalsushiacademy.com</a>
+      </p>
+
+      <p>
+        <a href={mapsHref} target="_blank" rel="noopener">View on Google Maps →</a>
+      </p>
+    </div>
+  </section>
 </BaseLayout>
