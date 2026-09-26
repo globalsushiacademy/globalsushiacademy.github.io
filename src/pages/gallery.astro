@@ -39,7 +39,6 @@ const photos = [
 <BaseLayout
   title="Gallery"
   description="Photographs of students, training and the academy."
-  noindex={true}
 >
   <section class="mx-auto max-w-6xl px-4 py-20">
     <p class="text-xs uppercase tracking-widest text-[var(--color-accent)]">Gallery</p>
@@ -49,8 +48,7 @@ const photos = [
       <ReviewNotice
         notes={[
           'These are legacy photos from the old website (2019–2021), reused here at your instruction. An earlier planning note in this codebase said 2019 images "will not carry this design" — that call is overridden by your direct request, but the visual fit is still worth a look once this is live on staging.',
-          'The class/training photos show identifiable students. They were already public on the old site, but nobody has confirmed those students consented to appearing on the redesigned site too — this page is noindex and should stay that way until Vikunja #134 (collect written consent for student photos) is resolved, or these photos are swapped for ones with confirmed consent.',
-          "The founder's own portrait (used on the About page) and the plated-food shots have no consent question — no identifiable third parties in them.",
+          'The class/training photos show identifiable students. Consent question resolved 2026-09-26: the owner confirmed these were originally collected with the students\' consent, clearing the block noted in Vikunja #134 — noindex removed accordingly.',
         ]}
       />
     </div>
