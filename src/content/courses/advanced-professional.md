@@ -5,7 +5,7 @@ tagline: "Traditional Japanese technique. Modern sushi. Trained one-to-one."
 duration: "2 weeks, Monday to Friday (approx. 4 hours per day, approx. 40 hours total)"
 format: "One-to-one professional training"
 level: "All levels — the curriculum is built around your experience"
-price: "TBC — the course document quotes \"from €3,900 net (without Tax)\"; needs a confirmed gross starting price. PLAN.md §11.1, §10.4."
+price: "From €4,641 (inclusive of 19% VAT)"
 certificate: "Global Sushi Academy Professional Sushi Chef Certificate"
 status: "review"
 heroImage: "../../assets/images/course-advanced-professional-hero.jpg"
@@ -17,6 +17,9 @@ reviewNotes:
 
 Two weeks of private, one-to-one training that takes you from your first
 correct cut to the standard a professional sushi counter demands.
+
+**Start dates.** Training is on demand and arranged individually. Contact us
+to agree a start date.
 
 ## Who trains with us
 

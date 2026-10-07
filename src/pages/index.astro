@@ -11,9 +11,6 @@ import galleryFood from '../assets/images/gallery-food-tobiko-orange.jpg';
 
 const t = useTranslations('en');
 
-// Only the four courses with a real source document get a homepage teaser —
-// Intermediate and Master Sushi Chef are one-line stubs with no curriculum
-// (see PLAN.md §11.1) and aren't ready to be featured.
 const featuredCourseIds = ['beginner', 'professional', 'advanced-professional', 'roll-together'];
 const courses = (
   await Promise.all(featuredCourseIds.map((id) => getEntry('courses', id)))

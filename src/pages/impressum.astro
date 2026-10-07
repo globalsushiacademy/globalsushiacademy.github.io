@@ -2,11 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LegalStub from '../components/LegalStub.astro';
 
-const items = [
-  "Rechtsform des Betreibers — identisch mit der Rechtsform von Manna Sushi & Grill (gleicher Inhaber, gleiche Adresse), oder eine eigene Registrierung? Ram wusste es beim Nachfragen selbst nicht sicher.",
-  "Registergericht und Registernummer, falls im Handelsregister eingetragen.",
-  "Umsatzsteuer-Identifikationsnummer nach § 27a UStG. Manna Sushi & Grill nennt DE309238027 — ob dieselbe Nummer hier gilt, hängt von der obigen Frage ab.",
-];
+const items: string[] = [];
 ---
 
 <BaseLayout title="Impressum" description="Anbieterkennzeichnung nach § 5 DDG." noindex={true}>
@@ -18,7 +14,7 @@ const items = [
     <h2>Angaben gemäß § 5 DDG</h2>
     <p>
       Ram Kaji Gosai<br />
-      Global Sushi Academy<br />
+      Global Sushi Academy (Einzelunternehmen)<br />
       Marienkirchhof 2–3<br />
       23552 Lübeck<br />
       Deutschland
@@ -30,11 +26,8 @@ const items = [
       E-Mail: info@globalsushiacademy.com
     </p>
 
-    <h2>Registereintrag</h2>
-    <p>TBC — Eintragung im Handelsregister, falls vorhanden.</p>
-
     <h2>Umsatzsteuer-ID</h2>
-    <p>TBC — Umsatzsteuer-Identifikationsnummer nach § 27a UStG.</p>
+    <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz: DE309238027</p>
 
     <h2>Redaktionell verantwortlich</h2>
     <p>

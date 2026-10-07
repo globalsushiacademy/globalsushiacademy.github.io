@@ -5,14 +5,13 @@ tagline: "Come together, learn together, enjoy together."
 duration: "One evening"
 format: "Hands-on, led by a professional sushi chef. At the academy, or we bring the sushi bar to you."
 level: "No experience needed — private groups"
-price: "TBC — the course document quotes €199 per person (plus Tax); needs a confirmed gross price. PLAN.md §11.1, §10.4."
+price: "€236.81 per person (inclusive of 19% VAT)"
 certificate: "Certificate of Participation"
 status: "review"
 heroImage: "../../assets/images/course-roll-together-hero.jpg"
 heroImageAlt: "A wooden boat-shaped serving board filled with an assortment of colourful sushi rolls, prepared for a group to share."
 reviewNotes:
   - "This is the site-structure brief's \"Private VIP Course — One-to-One Training\" entry, under the course document's own name, \"Roll Together\". Confirm the public-facing name (\"Private VIP\" vs. \"Roll Together\") before publishing."
-  - "For private events at the guest's own location, the source document notes a minimum participant count and possible travel costs apply, without giving numbers — needs the owner's actual minimums/travel-cost policy, marked TBC below rather than invented."
 ---
 
 An exclusive evening with the chefs of Global Sushi Academy. Learn to
@@ -47,6 +46,6 @@ to your home, office or private event. Our chef prepares and presents the
 whole experience on site.
 
 > **Please note.** For private events at your own location, a minimum
-> number of participants applies and travel costs may be added (TBC —
-> owner to confirm the actual minimum and travel-cost policy). Tell us
-> your date, guest count and address, and we will confirm the details.
+> number of participants applies and travel costs may be added. Contact us
+> to inquire: tell us your date, guest count and address, and we will
+> confirm the details.

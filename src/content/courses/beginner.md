@@ -5,17 +5,19 @@ tagline: "One day. Two to three hours. Your first real sushi."
 duration: "One day, 2–3 hours"
 format: "Practical, hands-on training"
 level: "Complete beginners welcome"
-price: "€149 net per person — TBC gross (19% VAT conversion not yet confirmed, PLAN.md §10.4)."
-status: "review"
+price: "€177.31 per person (inclusive of 19% VAT)"
+status: "confirmed"
 heroImage: "../../assets/images/course-beginner-hero.jpg"
 heroImageAlt: "A rainbow-style uramaki roll with salmon, tuna and avocado, sliced and arranged on a white boat-shaped dish."
-reviewNotes:
-  - "Duration conflict: the site-structure brief says \"2 Days\"; the course document says \"One day, 2–3 hours\". Used the course document's figure here as the more specific source — please confirm which is correct."
 ---
 
 A hands-on introduction to traditional Japanese sushi. In a single session
 you prepare the rice, learn to handle a knife safely, and roll and shape
 the classics yourself, from hosomaki to nigiri.
+
+**Start dates.** There is no fixed schedule. The course runs on demand and
+starts once the minimum number of participants is reached. Contact us to
+register your interest.
 
 ## What you will do
 
