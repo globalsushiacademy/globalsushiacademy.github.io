@@ -1,57 +1,33 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
+import { getEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { useTranslations, localePath } from '../i18n/ui';
+import { getLangFromUrl, useTranslations, localePath } from '../i18n/ui';
+import { copy } from '../i18n/copy';
 import certPhoto from '../assets/images/gallery-certificate-1.jpg';
 import galleryCert2 from '../assets/images/gallery-certificate-2.jpg';
 import galleryCertGroup from '../assets/images/gallery-certificate-group.jpg';
 import galleryHandsOn from '../assets/images/gallery-hands-on-class-1.jpg';
 import galleryFood from '../assets/images/gallery-food-tobiko-orange.jpg';
 
-const t = useTranslations('en');
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const c = copy[lang].home;
 
 const featuredCourseIds = ['beginner', 'professional', 'advanced-professional', 'roll-together'];
 const courses = (
-  await Promise.all(featuredCourseIds.map((id) => getEntry('courses', id)))
+  await Promise.all(featuredCourseIds.map((id) => getEntry(lang === 'de' ? 'coursesDe' : 'courses', id)))
 ).filter((c) => c !== undefined);
 
-const benefits = [
-  {
-    title: 'Hands-on from the first cut',
-    body: 'Every course is practical training at the board, not a lecture — you leave able to make what you learned, not just describe it.',
-  },
-  {
-    title: 'Taught by an internationally trained chef',
-    body: "Founder Ram Kaji Gosai trained under sushi masters across Japan, the Netherlands, Spain, Portugal and Norway before opening the academy in Lübeck.",
-  },
-  {
-    title: 'A certificate when you finish',
-    body: 'Every course ends with an academy-issued certificate, awarded in person — proof of the training you completed.',
-  },
-  {
-    title: 'One-to-one and small-group options',
-    body: 'Beyond the standard courses, train privately with the Advanced Professional program or book a private group evening with Roll Together.',
-  },
-];
-
-const paths = [
-  { href: '/certification', label: 'Certification', body: 'What the academy certificate is, and what it isn’t.' },
-  { href: '/career', label: 'Career', body: 'Support connecting with partner restaurants after longer courses.' },
-  { href: '/international-students', label: 'International Students', body: 'Guidance on registration, accommodation and getting settled.' },
-];
-
-const galleryTeaser = [
-  { src: galleryCertGroup, alt: 'Three graduates holding their framed certificates.' },
-  { src: galleryCert2, alt: 'Ram Kaji Gosai presenting a framed certificate to a graduate.' },
-  { src: galleryHandsOn, alt: "A student rolls sushi under an instructor's guidance." },
-  { src: galleryFood, alt: 'A sushi roll topped with orange tobiko roe, sliced and plated.' },
-];
+const galleryTeaser = [galleryCertGroup, galleryCert2, galleryHandsOn, galleryFood].map((src, i) => ({
+  src,
+  alt: c.teaserAlts[i],
+}));
 ---
 
 <BaseLayout
-  title="Global Sushi Academy"
-  description="Professional sushi chef training in Lübeck, Germany. Learn authentic Japanese sushi from experienced instructors, from your first roll to a professional counter."
+  title={c.title}
+  description={c.description}
 >
   <section class="bg-[var(--color-navy)] text-white">
     <div class="mx-auto grid max-w-6xl gap-10 px-4 py-20 md:grid-cols-2 md:items-center md:gap-16 md:py-28">
@@ -60,24 +36,20 @@ const galleryTeaser = [
           グローバル寿司アカデミー
         </p>
         <h1 class="mt-6 font-[family-name:var(--font-display)] text-5xl leading-tight md:text-6xl">
-          From Beginner to<br />
-          <span class="text-[var(--color-accent-on-dark)]">Professional Sushi Chef</span>
+          {c.heroLine1}<br />
+          <span class="text-[var(--color-accent-on-dark)]">{c.heroLine2}</span>
         </h1>
-        <p class="mt-8 max-w-md text-lg leading-relaxed text-white/80">
-          Learn authentic Japanese sushi from experienced instructors in Germany.
-          Professional training, academy certification, and support in connecting
-          with partner restaurants.
-        </p>
+        <p class="mt-8 max-w-md text-lg leading-relaxed text-white/80">{c.heroBody}</p>
 
         <div class="mt-10 flex flex-wrap gap-4">
           <a
-            href={localePath('en', '/courses')}
+            href={localePath(lang, '/courses')}
             class="bg-[var(--color-gold)] px-6 py-3 text-[var(--color-ink)] transition-opacity hover:opacity-90"
           >
             {t('cta.courses')}
           </a>
           <a
-            href={localePath('en', '/contact')}
+            href={localePath(lang, '/contact')}
             class="border border-white/40 px-6 py-3 text-white transition-colors hover:border-white hover:bg-white/10"
           >
             {t('cta.contact')}
@@ -88,22 +60,22 @@ const galleryTeaser = [
       <div class="hero-image relative">
         <Image
           src={certPhoto}
-          alt="Ram Kaji Gosai, founder of Global Sushi Academy, presents a framed Professional Sushi Chef Course certificate to a graduate."
+          alt={c.heroImageAlt}
           width={720}
           class="w-full object-cover"
         />
         <p class="absolute -bottom-4 left-4 border-l-4 border-[var(--color-gold)] bg-[var(--color-navy)] py-2 pl-4 pr-5 text-sm text-white/90">
-          Certified graduates, Lübeck
+          {c.heroCaption}
         </p>
       </div>
     </div>
   </section>
 
   <section class="reveal mx-auto max-w-6xl px-4 py-20">
-    <h2 class="font-[family-name:var(--font-display)] text-3xl">Why Global Sushi Academy</h2>
+    <h2 class="font-[family-name:var(--font-display)] text-3xl">{c.whyHeading}</h2>
     <div class="mt-10 grid gap-8 sm:grid-cols-2">
       {
-        benefits.map((b) => (
+        c.benefits.map((b) => (
           <div class="border-t-2 border-[var(--color-gold)] pt-4">
             <h3 class="font-[family-name:var(--font-display)] text-lg">{b.title}</h3>
             <p class="mt-2 text-[var(--color-muted)]">{b.body}</p>
@@ -116,9 +88,9 @@ const galleryTeaser = [
   <section class="reveal border-t border-[var(--color-line)] bg-[var(--color-line)]/40 py-20">
     <div class="mx-auto max-w-6xl px-4">
       <div class="flex flex-wrap items-end justify-between gap-4">
-        <h2 class="font-[family-name:var(--font-display)] text-3xl">Courses</h2>
-        <a href={localePath('en', '/courses')} class="text-sm text-[var(--color-accent)] hover:underline">
-          Compare all courses →
+        <h2 class="font-[family-name:var(--font-display)] text-3xl">{c.coursesHeading}</h2>
+        <a href={localePath(lang, '/courses')} class="text-sm text-[var(--color-accent)] hover:underline">
+          {c.compareAll}
         </a>
       </div>
 
@@ -126,7 +98,7 @@ const galleryTeaser = [
         {
           courses.map((course) => (
             <a
-              href={localePath('en', `/courses/${course.id}`)}
+              href={localePath(lang, `/courses/${course.id}`)}
               class="block border border-[var(--color-line)] bg-[var(--color-bg)] transition hover:border-[var(--color-accent)]"
             >
               {course.data.heroImage && (
@@ -149,12 +121,12 @@ const galleryTeaser = [
   </section>
 
   <section class="reveal mx-auto max-w-6xl px-4 py-20">
-    <h2 class="font-[family-name:var(--font-display)] text-3xl">Your Path After Training</h2>
+    <h2 class="font-[family-name:var(--font-display)] text-3xl">{c.pathHeading}</h2>
     <div class="mt-10 grid gap-6 sm:grid-cols-3">
       {
-        paths.map((p) => (
+        c.paths.map((p) => (
           <a
-            href={localePath('en', p.href)}
+            href={localePath(lang, p.href)}
             class="block border border-[var(--color-line)] p-6 transition hover:border-[var(--color-accent)]"
           >
             <h3 class="font-[family-name:var(--font-display)] text-lg">{p.label}</h3>
@@ -168,15 +140,15 @@ const galleryTeaser = [
   <section class="reveal border-t border-[var(--color-line)] py-20">
     <div class="mx-auto max-w-6xl px-4">
       <div class="flex flex-wrap items-end justify-between gap-4">
-        <h2 class="font-[family-name:var(--font-display)] text-3xl">From the Academy</h2>
-        <a href={localePath('en', '/gallery')} class="text-sm text-[var(--color-accent)] hover:underline">
-          View gallery →
+        <h2 class="font-[family-name:var(--font-display)] text-3xl">{c.galleryHeading}</h2>
+        <a href={localePath(lang, '/gallery')} class="text-sm text-[var(--color-accent)] hover:underline">
+          {c.viewGallery}
         </a>
       </div>
       <div class="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-4">
         {
           galleryTeaser.map((photo) => (
-            <a href={localePath('en', '/gallery')} class="group block aspect-square overflow-hidden">
+            <a href={localePath(lang, '/gallery')} class="group block aspect-square overflow-hidden">
               <Image
                 src={photo.src}
                 alt={photo.alt}
@@ -189,12 +161,6 @@ const galleryTeaser = [
       </div>
     </div>
   </section>
-
-  <!--
-    Testimonials section deliberately not built: no real reviews exist yet
-    and CLAUDE.md forbids inventing them, even as placeholders (§5b Abs. 3
-    UWG). Add a section here once the owner supplies real ones.
-  -->
 
   <style>
     @media (prefers-reduced-motion: no-preference) {

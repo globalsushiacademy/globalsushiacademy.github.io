@@ -5,9 +5,8 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  // BETA: served from the user-site repo globalsushiacademy.github.io, so no
-  // `base` is needed. At launch switch back to 'https://globalsushiacademy.com'
-  // and restore public/CNAME (see CLAUDE.md "Launch switch").
+  // Beta: served from the user-site repo globalsushiacademy.github.io, so no
+  // `base` is needed.
   site: 'https://globalsushiacademy.github.io',
 
   i18n: {
@@ -21,11 +20,6 @@ export default defineConfig({
 
   integrations: [
     sitemap({
-      // TODO(launch): delete this filter and the `noindex` on those pages
-      // once the Impressum and Datenschutzerklärung are complete. A finished
-      // Impressum is normally indexable; it is excluded only while it is an
-      // unfinished stub, so the sitemap doesn't contradict the noindex tag.
-      filter: (page) => !/\/(impressum|datenschutz)\/?$/.test(page),
       i18n: {
         defaultLocale: 'en',
         locales: { en: 'en-GB', de: 'de-DE' },

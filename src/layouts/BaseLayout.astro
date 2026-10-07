@@ -4,7 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import BetaBanner from '../components/BetaBanner.astro';
 import { BETA } from '../config';
-import { getLangFromUrl, useTranslations, alternatePath, localePath } from '../i18n/ui';
+import { getLangFromUrl, useTranslations, alternatePath, hasAlternate, localePath } from '../i18n/ui';
 import notoSansUrl from '../assets/fonts/noto-sans-latin.woff2?url';
 import zenOldMinchoUrl from '../assets/fonts/zen-old-mincho-400-latin.woff2?url';
 
@@ -33,7 +33,7 @@ const fullTitle = title === t('site.name') ? title : `${title} | ${t('site.name'
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Self-hosted, same-origin — no third-party font request (CLAUDE.md). -->
+    <!-- Self-hosted, same-origin -->
     <link rel="preload" href={notoSansUrl} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={zenOldMinchoUrl} as="font" type="font/woff2" crossorigin />
 
@@ -45,7 +45,9 @@ const fullTitle = title === t('site.name') ? title : `${title} | ${t('site.name'
 
     <!-- hreflang: tells Google these are translations, not duplicates. -->
     <link rel="alternate" hreflang={lang === 'de' ? 'de-DE' : 'en-GB'} href={canonical.href} />
-    <link rel="alternate" hreflang={otherLang === 'de' ? 'de-DE' : 'en-GB'} href={alternate.href} />
+    {hasAlternate(lang, Astro.url) && (
+      <link rel="alternate" hreflang={otherLang === 'de' ? 'de-DE' : 'en-GB'} href={alternate.href} />
+    )}
     <link rel="alternate" hreflang="x-default" href={new URL(localePath('en', '/'), Astro.site).href} />
 
     <meta property="og:type" content="website" />

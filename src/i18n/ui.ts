@@ -71,6 +71,26 @@ export const ui = {
   },
 } as const;
 
+/** Pages that exist in German. Other German links fall back to English. */
+const germanPages = new Set([
+  '/',
+  '/courses',
+  '/about',
+  '/career',
+  '/certification',
+  '/international-students',
+  '/contact',
+  '/gallery',
+  '/impressum',
+  '/datenschutz',
+]);
+
+export function hasTranslation(lang: Lang, path: string): boolean {
+  if (lang === defaultLang) return true;
+  const clean = path.replace(/\/$/, '') || '/';
+  return germanPages.has(clean) || clean.startsWith('/courses/');
+}
+
 /** Read the locale out of a URL pathname. Falls back to the default locale. */
 export function getLangFromUrl(url: URL): Lang {
   const [, lang] = url.pathname.split('/');
@@ -92,6 +112,7 @@ export function useTranslations(lang: Lang) {
  */
 export function localePath(lang: Lang, path: string): string {
   const clean = path.startsWith('/') ? path : `/${path}`;
+  if (lang !== defaultLang && !hasTranslation(lang, clean)) return clean;
   return lang === defaultLang ? clean : `/${lang}${clean === '/' ? '' : clean}`;
 }
 
@@ -102,4 +123,10 @@ export function alternatePath(lang: Lang, url: URL): string {
     ? url.pathname
     : url.pathname.replace(new RegExp(`^/${lang}`), '') || '/';
   return localePath(other, stripped);
+}
+
+/** Whether the current page has a version in the other locale. */
+export function hasAlternate(lang: Lang, url: URL): boolean {
+  if (lang !== defaultLang) return true;
+  return hasTranslation('de', url.pathname);
 }

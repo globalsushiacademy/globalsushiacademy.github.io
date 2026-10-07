@@ -1,36 +1,27 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ReviewNotice from '../components/ReviewNotice.astro';
+import { getLangFromUrl } from '../i18n/ui';
+import { copy } from '../i18n/copy';
+
+const lang = getLangFromUrl(Astro.url);
+const c = copy[lang].career;
 ---
 
-<BaseLayout title="Career Opportunities" description="Support connecting with partner restaurants and hotels.">
+<BaseLayout title={c.title} description={c.description}>
   <section class="mx-auto max-w-3xl px-4 py-20">
-    <p class="text-xs uppercase tracking-widest text-[var(--color-accent)]">Career</p>
-    <h1 class="mt-3 font-[family-name:var(--font-display)] text-4xl">After the Academy</h1>
-
-    <div class="mt-6">
-      <ReviewNotice
-        notes={[
-          'Same wording as the Professional Sushi Chef Program page, including the owner-confirmed Manna Sushi & Grill job offer for the best student(s) of each group — keep the two pages identical.',
-        ]}
-      />
-    </div>
+    <p class="text-xs uppercase tracking-widest text-[var(--color-accent)]">{c.eyebrow}</p>
+    <h1 class="mt-3 font-[family-name:var(--font-display)] text-4xl">{c.heading}</h1>
 
     <div class="markdown-body mt-10">
       <p>
-        Graduates of our longer programs continue into a period of supervised practical
-        training, where technique becomes speed and consistency. The instructor selects the
-        best student or students of each group, who will be offered a job at our sister
-        restaurant, <a href="https://manna-restaurants.de" target="_blank" rel="noopener">Manna Sushi &amp; Grill</a>.
-        There is no guarantee of a position. Other graduates may receive support in connecting with partner restaurants and hotels
-        that are hiring.
+        {c.p1a}
+        <a href="https://manna-restaurants.de" target="_blank" rel="noopener">Manna Sushi &amp; Grill</a>.
+        {c.p1b}
       </p>
 
       <blockquote>
-        <strong>Important.</strong> Visas, residence permits and employment authorization are
-        decided solely by the relevant German authorities. Global Sushi Academy does not
-        guarantee visa approval, and enrollment in a course does not by itself guarantee
-        employment.
+        <strong>{c.importantLabel}</strong>
+        {c.important}
       </blockquote>
     </div>
   </section>

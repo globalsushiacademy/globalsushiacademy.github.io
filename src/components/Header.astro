@@ -1,12 +1,12 @@
 ---
 import { Image } from 'astro:assets';
-import { getLangFromUrl, useTranslations, localePath, alternatePath } from '../i18n/ui';
+import { getLangFromUrl, useTranslations, localePath, alternatePath, hasAlternate } from '../i18n/ui';
 import logoCrest from '../assets/brand/logo-crest.png';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// Primary navigation is deliberately six items — see PLAN.md §7.
+// Primary navigation is deliberately six items.
 // Career, Reviews and FAQ live in the footer, not here.
 const nav = [
   { href: '/courses', label: t('nav.courses') },
@@ -18,6 +18,7 @@ const nav = [
 ];
 
 const current = Astro.url.pathname;
+const canSwitch = hasAlternate(lang, Astro.url);
 ---
 
 <header class="relative border-b border-[var(--color-line)]">
@@ -59,11 +60,13 @@ const current = Astro.url.pathname;
               );
             })
           }
+          {canSwitch && (
           <li class="pt-2">
             <a href={alternatePath(lang, Astro.url)} class="text-sm uppercase tracking-wide">
               {lang === 'en' ? 'Deutsch' : 'English'}
             </a>
           </li>
+          )}
         </ul>
       </nav>
     </details>
@@ -90,6 +93,7 @@ const current = Astro.url.pathname;
             );
           })
         }
+        {canSwitch && (
         <li>
           <a
             href={alternatePath(lang, Astro.url)}
@@ -99,6 +103,7 @@ const current = Astro.url.pathname;
             <span class="sr-only">{t('lang.switch')}</span>
           </a>
         </li>
+        )}
       </ul>
     </nav>
   </div>

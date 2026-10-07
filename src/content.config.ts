@@ -1,42 +1,42 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z, type SchemaContext } from 'astro:content';
 import { glob } from 'astro/loaders';
 
-// Courses, FAQ and testimonials as content collections rather than
-// hardcoded page markup — see CLAUDE.md "Content collections". Everything
-// under `status: 'review'` is a first draft built from the owner's 2026
-// content briefs and the legacy database; it still needs the owner's
-// sign-off (PLAN.md §11) before `status` can move to 'confirmed'.
+// Courses, FAQ and testimonials are content collections rather than
+// hardcoded page markup.
+
+const courseSchema = ({ image }: SchemaContext) =>
+  z
+    .object({
+      title: z.string(),
+      order: z.number(),
+      tagline: z.string(),
+      duration: z.string(),
+      format: z.string(),
+      level: z.string(),
+      // Free text so each language can phrase the gross price, e.g.
+      // "€7,140 (inclusive of 19% VAT)".
+      price: z.string(),
+      certificate: z.string().optional(),
+      // `image()` validates the path resolves to a real asset and gives Astro
+      // an optimizable reference; kept as two fields (not one object) because
+      // content-collection `image()` helpers can't be nested inside z.object().
+      heroImage: image().optional(),
+      heroImageAlt: z.string().optional(),
+    })
+    .refine((data) => !data.heroImage || !!data.heroImageAlt, {
+      message: 'heroImageAlt is required whenever heroImage is set',
+      path: ['heroImageAlt'],
+    });
 
 const courses = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/courses' }),
-  schema: ({ image }) =>
-    z
-      .object({
-        title: z.string(),
-        order: z.number(),
-        tagline: z.string(),
-        duration: z.string(),
-        format: z.string(),
-        level: z.string(),
-        // Free text, not a typed amount: several source prices are still net-of-VAT
-        // or disputed between documents. Write "TBC — …" until a single gross
-        // figure is confirmed. Never invent a gross price by multiplying by 1.19.
-        price: z.string(),
-        certificate: z.string().optional(),
-        status: z.enum(['review', 'confirmed']),
-        // Freeform notes on what's provisional and why — surfaced on the page
-        // itself while status is 'review' so the owner sees exactly what to check.
-        reviewNotes: z.array(z.string()).default([]),
-        // `image()` validates the path resolves to a real asset and gives Astro
-        // an optimizable reference; kept as two fields (not one object) because
-        // content-collection `image()` helpers can't be nested inside z.object().
-        heroImage: image().optional(),
-        heroImageAlt: z.string().optional(),
-      })
-      .refine((data) => !data.heroImage || !!data.heroImageAlt, {
-        message: 'heroImageAlt is required whenever heroImage is set',
-        path: ['heroImageAlt'],
-      }),
+  schema: courseSchema,
+});
+
+// German translations of the course pages, same ids as `courses`.
+const coursesDe = defineCollection({
+  loader: glob({ pattern: '*.md', base: './src/content/courses-de' }),
+  schema: courseSchema,
 });
 
 const faq = defineCollection({
@@ -44,13 +44,10 @@ const faq = defineCollection({
   schema: z.object({
     question: z.string(),
     order: z.number(),
-    status: z.enum(['review', 'confirmed']).default('review'),
   }),
 });
 
-// No entries yet, deliberately: CLAUDE.md forbids inventing testimonials,
-// even as placeholder copy (§5b Abs. 3 UWG). Add real ones here once the
-// owner supplies them, with consent for any published name/photo.
+// Only real testimonials, with consent for any published name or photo.
 const testimonials = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/testimonials' }),
   schema: z.object({
@@ -60,4 +57,4 @@ const testimonials = defineCollection({
   }),
 });
 
-export const collections = { courses, faq, testimonials };
+export const collections = { courses, coursesDe, faq, testimonials };

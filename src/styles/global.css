@@ -1,8 +1,7 @@
 @import "tailwindcss";
 
 /*
- * Self-hosted webfonts (PLAN.md §8, CLAUDE.md "Choose and self-host
- * webfonts"). Files live in src/assets/fonts/ and are served from this
+ * Self-hosted webfonts. Files live in src/assets/fonts/ and are served from this
  * domain — never fonts.googleapis.com, which sends visitor IPs to Google
  * and is the most commonly abmahnt GDPR mistake on German sites.
  *
@@ -48,9 +47,9 @@
 }
 
 /*
- * Design tokens — see PLAN.md §8.
+ * Design tokens.
  *
- * Direction from the owner's brief: professional culinary school, not a
+ * Direction: professional culinary school, not a
  * restaurant. White background, black accents, a touch of red.
  *
  * Red is a 1% colour: CTAs, rules, and the numbered module markers used

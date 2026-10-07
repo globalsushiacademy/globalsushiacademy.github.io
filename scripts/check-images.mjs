@@ -1,6 +1,5 @@
 /**
  * Fails the build if any image in dist/ exceeds the weight budget.
- * See PLAN.md §12/§13 — images are the most likely way this site gets slow.
  */
 import { readdir, stat } from 'node:fs/promises';
 import { join, extname } from 'node:path';

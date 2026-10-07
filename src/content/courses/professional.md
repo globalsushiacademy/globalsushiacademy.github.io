@@ -7,7 +7,6 @@ format: "Hands-on practical training"
 level: "Beginner to professional"
 price: "€7,140 (inclusive of 19% VAT)"
 certificate: "Professional Sushi Chef Certificate"
-status: "confirmed"
 heroImage: "../../assets/images/course-professional-hero.jpg"
 heroImageAlt: "An avocado-topped sushi roll garnished with micro herbs and a citrus glaze, sliced and plated."
 ---

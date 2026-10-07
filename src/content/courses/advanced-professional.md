@@ -7,12 +7,8 @@ format: "One-to-one professional training"
 level: "All levels — the curriculum is built around your experience"
 price: "From €4,641 (inclusive of 19% VAT)"
 certificate: "Global Sushi Academy Professional Sushi Chef Certificate"
-status: "review"
 heroImage: "../../assets/images/course-advanced-professional-hero.jpg"
 heroImageAlt: "A chef in a red scarf uses chopsticks to add a delicate garnish to a sushi roll finished with gold leaf."
-reviewNotes:
-  - "Not listed in the site-structure brief's five-tier list at all — it exists only as its own course document. Confirm this is a real, currently-offered course distinct from the 8-week Professional Sushi Chef Program, and check whether the brief's \"2 Weeks\" Professional tier was actually meant to describe this course."
-  - "This document's placement wording was already compliant in the source (visas/permits decided solely by German authorities, no guarantee of employment) — reused as-is, no rewrite needed."
 ---
 
 Two weeks of private, one-to-one training that takes you from your first

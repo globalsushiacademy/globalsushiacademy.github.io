@@ -6,7 +6,6 @@ duration: "One day, 2–3 hours"
 format: "Practical, hands-on training"
 level: "Complete beginners welcome"
 price: "€177.31 per person (inclusive of 19% VAT)"
-status: "confirmed"
 heroImage: "../../assets/images/course-beginner-hero.jpg"
 heroImageAlt: "A rainbow-style uramaki roll with salmon, tuna and avocado, sliced and arranged on a white boat-shaped dish."
 ---

@@ -1,7 +1,7 @@
 /**
  * Fails the build if the output calls a third-party host.
  *
- * The site is designed to need no cookie banner (PLAN.md §10.2). That only
+ * The site is designed to need no cookie banner. That only
  * holds while nothing loads from someone else's server before the visitor
  * consents. Self-hosted Google Fonts in particular is the single most
  * commonly abmahnt GDPR mistake on German sites.

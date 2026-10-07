@@ -1,20 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LegalStub from '../components/LegalStub.astro';
-import ReviewNotice from '../components/ReviewNotice.astro';
 ---
 
-<BaseLayout title="Datenschutzerklärung" description="Informationen zur Verarbeitung personenbezogener Daten nach Art. 13 DSGVO." noindex={true}>
+<BaseLayout title="Datenschutzerklärung" description="Informationen zur Verarbeitung personenbezogener Daten nach Art. 13 DSGVO.">
   <LegalStub
     heading="Datenschutzerklärung"
-    intro="Pflichtinformationen nach Art. 13 DSGVO. Struktur nach dem Vorlagen-Aufbau von e-recht24.de, wie ihn auch manna-restaurants.de verwendet."
+    intro="Informationen nach Art. 13 DSGVO."
   >
-    <ReviewNotice
-      notes={[
-        'Anders als beim Impressum fehlt hier keine bekannte Pflichtangabe — trotzdem vor Veröffentlichung von einer fachkundigen Person gegenprüfen lassen, insbesondere den Hosting-Abschnitt.',
-        '"HTTPS erzwingen" (GitHub Pages Einstellung) bitte nach dem DNS-Umzug bestätigen — der SSL-/TLS-Abschnitt unten geht davon aus, dass sie aktiviert ist.',
-      ]}
-    />
 
     <h2>Datenschutz auf einen Blick</h2>
 

@@ -7,11 +7,8 @@ format: "Hands-on, led by a professional sushi chef. At the academy, or we bring
 level: "No experience needed — private groups"
 price: "€236.81 per person (inclusive of 19% VAT)"
 certificate: "Certificate of Participation"
-status: "review"
 heroImage: "../../assets/images/course-roll-together-hero.jpg"
 heroImageAlt: "A wooden boat-shaped serving board filled with an assortment of colourful sushi rolls, prepared for a group to share."
-reviewNotes:
-  - "This is the site-structure brief's \"Private VIP Course — One-to-One Training\" entry, under the course document's own name, \"Roll Together\". Confirm the public-facing name (\"Private VIP\" vs. \"Roll Together\") before publishing."
 ---
 
 An exclusive evening with the chefs of Global Sushi Academy. Learn to

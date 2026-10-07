@@ -1,42 +1,30 @@
 ---
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ReviewNotice from '../components/ReviewNotice.astro';
+import { getLangFromUrl } from '../i18n/ui';
+import { copy } from '../i18n/copy';
 import certPhoto from '../assets/images/gallery-certificate-2.jpg';
+const lang = getLangFromUrl(Astro.url);
+const c = copy[lang].certification;
 ---
 
-<BaseLayout title="Certification" description="The Global Sushi Academy certificate.">
+<BaseLayout title={c.title} description={c.description}>
   <section class="mx-auto max-w-3xl px-4 py-20">
-    <p class="text-xs uppercase tracking-widest text-[var(--color-accent)]">Certification</p>
-    <h1 class="mt-3 font-[family-name:var(--font-display)] text-4xl">Your Certificate</h1>
+    <p class="text-xs uppercase tracking-widest text-[var(--color-accent)]">{c.eyebrow}</p>
+    <h1 class="mt-3 font-[family-name:var(--font-display)] text-4xl">{c.heading}</h1>
 
-    <div class="mt-6">
-      <ReviewNotice
-        notes={[
-          'Owner confirmed: the certificate comes from the academy only, with no external recognition. Certificate names vary by course in the source documents, so this page stays generic until the course list is final.',
-        ]}
-      />
-    </div>
 
     <Image
       src={certPhoto}
-      alt="Ram Kaji Gosai presents a framed certificate to a graduate wearing academy chef whites."
+      alt={c.imageAlt}
       width={800}
       class="mt-8 w-full object-cover"
     />
 
     <div class="markdown-body mt-10">
-      <p>
-        Every course at Global Sushi Academy ends with a certificate: an academy-issued record
-        that you completed the training, awarded by Ram Kaji Gosai in person.
-      </p>
+      <p>{c.p1}</p>
 
-      <p>
-        This is a Global Sushi Academy certificate of completed professional training — it is
-        not a state-recognised or chamber-recognised qualification, and we don't represent it as
-        one. What it confirms is specific and real: that you trained at the academy, completed
-        the course, and can show that to an employer or to yourself.
-      </p>
+      <p>{c.p2}</p>
     </div>
   </section>
 </BaseLayout>
