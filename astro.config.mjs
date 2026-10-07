@@ -5,9 +5,10 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  // Canonical production domain. Required for sitemap + absolute OG URLs.
-  // No `base` is set: this deploys to a custom apex domain, not a project path.
-  site: 'https://globalsushiacademy.com',
+  // BETA: served from the user-site repo globalsushiacademy.github.io, so no
+  // `base` is needed. At launch switch back to 'https://globalsushiacademy.com'
+  // and restore public/CNAME (see CLAUDE.md "Launch switch").
+  site: 'https://globalsushiacademy.github.io',
 
   i18n: {
     defaultLocale: 'en',
