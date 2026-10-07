@@ -1,0 +1,79 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CourseIconPlaceholder from '../../components/CourseIconPlaceholder.astro';
+import { getLangFromUrl, localePath } from '../../i18n/ui';
+
+export async function getStaticPaths() {
+  const courses = await getCollection('courses');
+  return courses.map((course) => ({
+    params: { id: course.id },
+    props: { course },
+  }));
+}
+
+const { course } = Astro.props;
+const { Content } = await render(course);
+const lang = getLangFromUrl(Astro.url);
+---
+
+<BaseLayout
+  title={course.data.title}
+  description={course.data.tagline}
+>
+  <article class="mx-auto max-w-3xl px-4 py-20">
+    <p class="text-xs uppercase tracking-widest text-[var(--color-accent)]">
+      <a href={localePath(lang, '/courses')} class="hover:underline">Courses</a>
+    </p>
+    <h1 class="mt-3 font-[family-name:var(--font-display)] text-4xl">{course.data.title}</h1>
+    <p class="mt-4 text-lg text-[var(--color-muted)]">{course.data.tagline}</p>
+
+    {course.data.heroImage ? (
+      <Image
+        src={course.data.heroImage}
+        alt={course.data.heroImageAlt ?? ''}
+        width={1000}
+        class="mt-8 max-h-[420px] w-full object-cover"
+      />
+    ) : (
+      <CourseIconPlaceholder class="mt-8 h-40 w-full" iconSize={56} />
+    )}
+
+
+    <dl class="mt-8 grid grid-cols-2 gap-x-6 gap-y-3 border-y border-[var(--color-line)] py-6 text-sm sm:grid-cols-4">
+      <div>
+        <dt class="text-[var(--color-muted)]">Duration</dt>
+        <dd class="mt-1">{course.data.duration}</dd>
+      </div>
+      <div>
+        <dt class="text-[var(--color-muted)]">Format</dt>
+        <dd class="mt-1">{course.data.format}</dd>
+      </div>
+      <div>
+        <dt class="text-[var(--color-muted)]">Level</dt>
+        <dd class="mt-1">{course.data.level}</dd>
+      </div>
+      <div>
+        <dt class="text-[var(--color-muted)]">Price</dt>
+        <dd class="mt-1">{course.data.price}</dd>
+      </div>
+      {course.data.certificate && (
+        <div class="col-span-2 sm:col-span-4">
+          <dt class="text-[var(--color-muted)]">Certificate</dt>
+          <dd class="mt-1">{course.data.certificate}</dd>
+        </div>
+      )}
+    </dl>
+
+    <div class="markdown-body mt-10">
+      <Content />
+    </div>
+
+    <p class="mt-12 border-t border-[var(--color-line)] pt-6">
+      <a href={localePath(lang, '/contact')} class="text-[var(--color-accent)] hover:underline">
+        Get in touch about this course →
+      </a>
+    </p>
+  </article>
+</BaseLayout>

@@ -1,0 +1,10 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/ui';
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
+<div role="note" class="bg-[var(--color-ink)] px-4 py-2 text-center text-sm text-white">
+  <strong class="mr-1 uppercase tracking-wide">Beta</strong>
+  {t('beta.notice')}
+</div>

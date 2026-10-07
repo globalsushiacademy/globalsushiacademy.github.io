@@ -1,0 +1,3 @@
+# BETA: not for indexing. Restore the production robots.txt at launch.
+User-agent: *
+Disallow: /

@@ -1,0 +1,34 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import certPhoto from '../assets/images/gallery-certificate-2.jpg';
+---
+
+<BaseLayout title="Certification" description="The Global Sushi Academy certificate.">
+  <section class="mx-auto max-w-3xl px-4 py-20">
+    <p class="text-xs uppercase tracking-widest text-[var(--color-accent)]">Certification</p>
+    <h1 class="mt-3 font-[family-name:var(--font-display)] text-4xl">Your Certificate</h1>
+
+
+    <Image
+      src={certPhoto}
+      alt="Ram Kaji Gosai presents a framed certificate to a graduate wearing academy chef whites."
+      width={800}
+      class="mt-8 w-full object-cover"
+    />
+
+    <div class="markdown-body mt-10">
+      <p>
+        Every course at Global Sushi Academy ends with a certificate: an academy-issued record
+        that you completed the training, awarded by Ram Kaji Gosai in person.
+      </p>
+
+      <p>
+        This is a Global Sushi Academy certificate of completed professional training — it is
+        not a state-recognised or chamber-recognised qualification, and we don't represent it as
+        one. What it confirms is specific and real: that you trained at the academy, completed
+        the course, and can show that to an employer or to yourself.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

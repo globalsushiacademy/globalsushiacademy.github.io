@@ -1,0 +1,17 @@
+---
+/** Wrapper for the legally mandatory pages (Impressum, Datenschutz). */
+interface Props {
+  heading: string;
+  intro: string;
+}
+const { heading, intro } = Astro.props;
+---
+
+<section class="mx-auto max-w-3xl px-4 py-20">
+  <h1 class="font-[family-name:var(--font-display)] text-4xl">{heading}</h1>
+  <p class="mt-6 text-[var(--color-muted)]">{intro}</p>
+
+  <div class="markdown-body mt-10">
+    <slot />
+  </div>
+</section>
