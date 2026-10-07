@@ -1,80 +1,39 @@
 ---
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getLangFromUrl } from '../i18n/ui';
+import { copy } from '../i18n/copy';
 import portrait from '../assets/images/about-founder-portrait.jpg';
+const lang = getLangFromUrl(Astro.url);
+const c = copy[lang].about;
 ---
 
-<BaseLayout title="About Us" description="The story of Global Sushi Academy and its founder, Ram Kaji Gosai.">
+<BaseLayout title={c.title} description={c.description}>
   <section class="mx-auto max-w-3xl px-4 py-20">
-    <p class="text-xs uppercase tracking-widest text-[var(--color-accent)]">About Us</p>
+    <p class="text-xs uppercase tracking-widest text-[var(--color-accent)]">{c.title}</p>
     <h1 class="mt-3 font-[family-name:var(--font-display)] text-4xl">Ram Kaji Gosai</h1>
-    <p class="mt-4 text-lg text-[var(--color-muted)]">Founder, Global Sushi Academy</p>
+    <p class="mt-4 text-lg text-[var(--color-muted)]">{c.role}</p>
 
     <Image
       src={portrait}
-      alt="Ram Kaji Gosai, founder of Global Sushi Academy, in chef's whites holding a wooden boat-shaped sushi platter."
+      alt={c.portraitAlt}
       width={480}
       class="mt-8 w-full max-w-sm object-cover sm:float-right sm:ml-8"
     />
 
 
     <div class="markdown-body mt-10">
-      <p>
-        Global Sushi Academy is a premier sushi school in Europe, based in Germany. Ram Kaji
-        Gosai started Global Sushi Academy with the aim of helping people realize their dreams
-        of becoming a top sushi chef — and to promote sushi and other Asian dishes as delicious,
-        healthy food throughout the world.
-      </p>
+      <p>{c.intro}</p>
 
-      <h2>Ram's story</h2>
+      <h2>{c.storyHeading}</h2>
 
-      <p>
-        Ram Kaji Gosai was born in Bhaktapur, Nepal — the birthplace of Buddha and home to the
-        tallest mountain in the world, Mt. Everest.
-      </p>
+      {c.story.map((paragraph) => <p>{paragraph}</p>)}
+
+      <h2>{c.mannaHeading}</h2>
 
       <p>
-        At the age of 18, Ram started his culinary journey working at a small restaurant. He
-        worked there for three years, learning both Western and Japanese cuisines.
-      </p>
-
-      <p>
-        In 1999, Ram started his own restaurant in Nepal and got an early taste of
-        entrepreneurship. He ran it for three years before, driven by big dreams and high
-        ambitions, moving to Europe in 2002.
-      </p>
-
-      <p>
-        A hard-working and determined person, Ram gained extensive experience across Europe,
-        working with top Japanese and Nepalese sushi masters in the Netherlands, Spain, Portugal
-        and Norway, and at major hotels including Ostsee Scharbeutz in Schleswig-Holstein,
-        Germany.
-      </p>
-
-      <p>
-        In 2015, Ram took a sushi course in Bad Schwartau, Germany, and completed a private
-        Advanced Sushi Chef course in Los Angeles, USA, under the renowned Japanese sushi master
-        Andy Matsuda.
-      </p>
-
-      <p>
-        After many years working in top restaurants and hotels, Ram returned to his
-        entrepreneurial ambitions and set out to help others learn the art of sushi making. In
-        July 2016, he opened Global Sushi Academy — a sushi school dedicated to training the
-        next generation of sushi chefs.
-      </p>
-
-      <p>
-        Through Global Sushi Academy, Ram's mission is to train enthusiastic, dedicated students
-        to a professional standard and to promote healthy Japanese cuisine around the globe.
-      </p>
-
-      <h2>Manna Sushi &amp; Grill</h2>
-
-      <p>
-        Ram also owns and runs <a href="https://manna-restaurants.de" target="_blank" rel="noopener">Manna Sushi &amp; Grill</a>,
-        a Japanese and Nepalese restaurant at the academy's own address, Marienkirchhof 2–3 in
-        Lübeck.
+        {c.mannaBefore} <a href="https://manna-restaurants.de" target="_blank" rel="noopener">Manna Sushi &amp; Grill</a>,
+        {c.mannaAfter}
       </p>
     </div>
   </section>

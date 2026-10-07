@@ -1,6 +1,8 @@
 ---
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getLangFromUrl } from '../i18n/ui';
+import { copy } from '../i18n/copy';
 import cert1 from '../assets/images/gallery-certificate-1.jpg';
 import cert2 from '../assets/images/gallery-certificate-2.jpg';
 import cert3 from '../assets/images/gallery-certificate-3.jpg';
@@ -14,58 +16,61 @@ import tobikoOrange from '../assets/images/gallery-food-tobiko-orange.jpg';
 import salmonLeaf from '../assets/images/gallery-food-salmon-leaf.jpg';
 import sesameRoll from '../assets/images/gallery-food-sesame-roll.jpg';
 
+const lang = getLangFromUrl(Astro.url);
+const c = copy[lang].gallery;
+
 // `wide` spans two grid columns — reserved for landscape shots with enough
 // going on to earn the extra width (the group photo, the working kitchen).
 const photos = [
   {
     src: certGroup,
-    alt: 'Three graduates of the Professional Sushi Chef Course stand together, each holding their own framed certificate.',
+    alt: c.alts[0],
     wide: true,
   },
   {
     src: cert1,
-    alt: "Ram Kaji Gosai presents a framed certificate to a graduate against a dark backdrop.",
+    alt: c.alts[1],
   },
   {
     src: cert2,
-    alt: 'Ram Kaji Gosai presents a framed certificate to a graduate wearing academy chef whites.',
+    alt: c.alts[2],
   },
   {
     src: handsOnClass2,
-    alt: 'A group of students in academy chef whites gathers around a kitchen island while an instructor demonstrates fish preparation.',
+    alt: c.alts[3],
     wide: true,
   },
   {
     src: cert3,
-    alt: 'Ram Kaji Gosai presents a framed certificate to a graduate in a hijab and academy chef whites.',
+    alt: c.alts[4],
   },
   {
     src: handsOnClass1,
-    alt: "A student rolls sushi under an instructor's guidance at a shared classroom table, with several other students preparing their own plates alongside.",
+    alt: c.alts[5],
   },
   {
     src: graduationGroup,
-    alt: 'A group of graduates in academy chef whites poses together in a classroom, each holding a plate of sushi they made.',
+    alt: c.alts[6],
   },
-  { src: tobikoGreen, alt: 'A sushi roll crusted in green tobiko roe, sliced and plated on a white dish.' },
-  { src: tobikoOrange, alt: 'A sushi roll topped with orange tobiko roe, sliced and arranged on a leaf-shaped plate.' },
-  { src: salmonLeaf, alt: 'A salmon nigiri-style roll arranged on a leaf-shaped white plate.' },
-  { src: sesameRoll, alt: 'A sesame-crusted sushi roll sliced and plated.' },
+  { src: tobikoGreen, alt: c.alts[7], },
+  { src: tobikoOrange, alt: c.alts[8], },
+  { src: salmonLeaf, alt: c.alts[9], },
+  { src: sesameRoll, alt: c.alts[10], },
   {
     src: academyBuilding,
-    alt: 'The exterior of a brick gothic-revival building in Lübeck.',
+    alt: c.alts[11],
     width: 304, // native resolution of this one legacy file — do not upscale
   },
 ];
 ---
 
 <BaseLayout
-  title="Gallery"
-  description="Photographs of students, training and the academy."
+  title={c.title}
+  description={c.description}
 >
   <section class="mx-auto max-w-6xl px-4 py-20">
-    <p class="text-xs uppercase tracking-widest text-[var(--color-accent)]">Gallery</p>
-    <h1 class="mt-3 font-[family-name:var(--font-display)] text-4xl">From the Academy</h1>
+    <p class="text-xs uppercase tracking-widest text-[var(--color-accent)]">{c.title}</p>
+    <h1 class="mt-3 font-[family-name:var(--font-display)] text-4xl">{c.heading}</h1>
 
 
     <div class="gallery-grid mt-12 grid auto-rows-[180px] grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
@@ -77,7 +82,7 @@ const photos = [
               'group block overflow-hidden bg-[var(--color-line)]',
               photo.wide && 'col-span-2 row-span-2',
             ]}
-            aria-label="Enlarge photo"
+            aria-label={c.enlarge}
           >
             <Image
               src={photo.src}
@@ -94,7 +99,7 @@ const photos = [
   {
     photos.map((photo, i) => (
       <div id={`photo-${i}`} class="lightbox" role="dialog" aria-label={photo.alt}>
-        <a href="#" class="lightbox-backdrop" aria-label="Close"></a>
+        <a href="#" class="lightbox-backdrop" aria-label={c.close}></a>
         <div class="relative mx-auto flex max-h-[85vh] max-w-4xl items-center px-4">
           <Image
             src={photo.src}
@@ -104,7 +109,7 @@ const photos = [
           />
           <a
             href="#"
-            aria-label="Close"
+            aria-label={c.close}
             class="absolute -top-10 right-4 text-3xl leading-none text-white hover:text-[var(--color-accent-on-dark)] sm:top-2 sm:-right-10"
           >
             ×

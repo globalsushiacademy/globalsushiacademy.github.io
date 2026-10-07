@@ -4,17 +4,19 @@ import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CourseIconPlaceholder from '../components/CourseIconPlaceholder.astro';
 import { getLangFromUrl, localePath } from '../i18n/ui';
+import { copy } from '../i18n/copy';
 
 const lang = getLangFromUrl(Astro.url);
 
-const courses = (await getCollection('courses')).sort((a, b) => a.data.order - b.data.order);
+const c = copy[lang].courses;
+const courses = (await getCollection(lang === 'de' ? 'coursesDe' : 'courses')).sort((a, b) => a.data.order - b.data.order);
 ---
 
-<BaseLayout title="Courses" description="Sushi courses at Global Sushi Academy in Lübeck, Germany.">
+<BaseLayout title={c.title} description={c.description}>
   <section class="mx-auto max-w-6xl px-4 py-20">
-    <p class="text-xs uppercase tracking-widest text-[var(--color-accent)]">Courses</p>
+    <p class="text-xs uppercase tracking-widest text-[var(--color-accent)]">{c.title}</p>
     <h1 class="mt-3 font-[family-name:var(--font-display)] text-4xl">
-      From Beginner to Professional Sushi Chef
+      {c.heading}
     </h1>
 
 
@@ -40,11 +42,11 @@ const courses = (await getCollection('courses')).sort((a, b) => a.data.order - b
               <p class="mt-2 text-sm text-[var(--color-muted)]">{course.data.tagline}</p>
               <dl class="mt-4 space-y-1 text-sm">
                 <div class="flex justify-between gap-4">
-                  <dt class="text-[var(--color-muted)]">Duration</dt>
+                  <dt class="text-[var(--color-muted)]">{c.duration}</dt>
                   <dd class="text-right">{course.data.duration}</dd>
                 </div>
                 <div class="flex justify-between gap-4">
-                  <dt class="text-[var(--color-muted)]">Level</dt>
+                  <dt class="text-[var(--color-muted)]">{c.level}</dt>
                   <dd class="text-right">{course.data.level}</dd>
                 </div>
               </dl>
@@ -54,15 +56,15 @@ const courses = (await getCollection('courses')).sort((a, b) => a.data.order - b
       }
     </div>
 
-    <h2 class="mt-20 font-[family-name:var(--font-display)] text-2xl">Compare courses</h2>
+    <h2 class="mt-20 font-[family-name:var(--font-display)] text-2xl">{c.compare}</h2>
     <div class="mt-6 overflow-x-auto">
       <table class="w-full min-w-[640px] border-collapse text-sm">
         <thead>
           <tr class="border-b border-[var(--color-line)] text-left">
-            <th class="py-3 pr-4 font-semibold">Course</th>
-            <th class="py-3 pr-4 font-semibold">Duration</th>
-            <th class="py-3 pr-4 font-semibold">Format</th>
-            <th class="py-3 font-semibold">Price</th>
+            <th class="py-3 pr-4 font-semibold">{c.course}</th>
+            <th class="py-3 pr-4 font-semibold">{c.duration}</th>
+            <th class="py-3 pr-4 font-semibold">{c.format}</th>
+            <th class="py-3 font-semibold">{c.price}</th>
           </tr>
         </thead>
         <tbody>

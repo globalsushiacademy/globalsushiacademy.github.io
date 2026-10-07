@@ -1,9 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
-import CourseDetail from '../../components/CourseDetail.astro';
+import CourseDetail from '../../../components/CourseDetail.astro';
 
 export async function getStaticPaths() {
-  const courses = await getCollection('courses');
+  const courses = await getCollection('coursesDe');
   return courses.map((course) => ({
     params: { id: course.id },
     props: { course },
@@ -13,4 +13,4 @@ export async function getStaticPaths() {
 const { course } = Astro.props;
 ---
 
-<CourseDetail course={course} lang="en" />
+<CourseDetail course={course} lang="de" />

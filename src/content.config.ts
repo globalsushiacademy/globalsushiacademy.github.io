@@ -1,35 +1,42 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z, type SchemaContext } from 'astro:content';
 import { glob } from 'astro/loaders';
 
 // Courses, FAQ and testimonials are content collections rather than
 // hardcoded page markup.
 
+const courseSchema = ({ image }: SchemaContext) =>
+  z
+    .object({
+      title: z.string(),
+      order: z.number(),
+      tagline: z.string(),
+      duration: z.string(),
+      format: z.string(),
+      level: z.string(),
+      // Free text so each language can phrase the gross price, e.g.
+      // "€7,140 (inclusive of 19% VAT)".
+      price: z.string(),
+      certificate: z.string().optional(),
+      // `image()` validates the path resolves to a real asset and gives Astro
+      // an optimizable reference; kept as two fields (not one object) because
+      // content-collection `image()` helpers can't be nested inside z.object().
+      heroImage: image().optional(),
+      heroImageAlt: z.string().optional(),
+    })
+    .refine((data) => !data.heroImage || !!data.heroImageAlt, {
+      message: 'heroImageAlt is required whenever heroImage is set',
+      path: ['heroImageAlt'],
+    });
+
 const courses = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/courses' }),
-  schema: ({ image }) =>
-    z
-      .object({
-        title: z.string(),
-        order: z.number(),
-        tagline: z.string(),
-        duration: z.string(),
-        format: z.string(),
-        level: z.string(),
-        // Free text, not a typed amount: several source prices are still net-of-VAT
-        // or disputed between documents. Write "TBC — …" until a single gross
-        // figure is confirmed. Never invent a gross price by multiplying by 1.19.
-        price: z.string(),
-        certificate: z.string().optional(),
-        // `image()` validates the path resolves to a real asset and gives Astro
-        // an optimizable reference; kept as two fields (not one object) because
-        // content-collection `image()` helpers can't be nested inside z.object().
-        heroImage: image().optional(),
-        heroImageAlt: z.string().optional(),
-      })
-      .refine((data) => !data.heroImage || !!data.heroImageAlt, {
-        message: 'heroImageAlt is required whenever heroImage is set',
-        path: ['heroImageAlt'],
-      }),
+  schema: courseSchema,
+});
+
+// German translations of the course pages, same ids as `courses`.
+const coursesDe = defineCollection({
+  loader: glob({ pattern: '*.md', base: './src/content/courses-de' }),
+  schema: courseSchema,
 });
 
 const faq = defineCollection({
@@ -50,4 +57,4 @@ const testimonials = defineCollection({
   }),
 });
 
-export const collections = { courses, faq, testimonials };
+export const collections = { courses, coursesDe, faq, testimonials };

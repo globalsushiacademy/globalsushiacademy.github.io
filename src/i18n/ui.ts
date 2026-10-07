@@ -72,11 +72,23 @@ export const ui = {
 } as const;
 
 /** Pages that exist in German. Other German links fall back to English. */
-const germanPages = new Set(['/', '/impressum', '/datenschutz']);
+const germanPages = new Set([
+  '/',
+  '/courses',
+  '/about',
+  '/career',
+  '/certification',
+  '/international-students',
+  '/contact',
+  '/gallery',
+  '/impressum',
+  '/datenschutz',
+]);
 
 export function hasTranslation(lang: Lang, path: string): boolean {
   if (lang === defaultLang) return true;
-  return germanPages.has(path.replace(/\/$/, '') || '/');
+  const clean = path.replace(/\/$/, '') || '/';
+  return germanPages.has(clean) || clean.startsWith('/courses/');
 }
 
 /** Read the locale out of a URL pathname. Falls back to the default locale. */
