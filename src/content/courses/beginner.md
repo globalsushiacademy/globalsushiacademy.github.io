@@ -1,6 +1,7 @@
 ---
 title: "Sushi Beginner Course"
 order: 1
+group: "recreational"
 tagline: "One day. Two to three hours. Your first real sushi."
 duration: "One day, 2–3 hours"
 format: "Practical, hands-on training"

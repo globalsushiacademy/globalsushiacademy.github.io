@@ -16,6 +16,13 @@ const { course, lang } = Astro.props;
 const { Content } = await render(course);
 const c = copy[lang].detail;
 const cc = copy[lang].courses;
+
+const email = 'info@globalsushiacademy.com';
+const offerIndex = 7;
+const mailBody = c.mailFields
+  .map((field, i) => `${field}: ${i === offerIndex ? (course.data.requestOffer ?? '') : ''}`)
+  .join('\n');
+const mailto = `mailto:${email}?subject=${encodeURIComponent(`${c.mailSubject}: ${course.data.title}`)}&body=${encodeURIComponent(mailBody)}`;
 ---
 
 <BaseLayout
@@ -69,6 +76,13 @@ const cc = copy[lang].courses;
     <div class="markdown-body mt-10">
       <Content />
     </div>
+
+    {course.data.requestOffer && (
+      <div class="mt-12 border border-[var(--color-line)] p-6">
+        <a href={mailto} class="text-[var(--color-accent)] hover:underline">{c.request}</a>
+        <p class="mt-2 text-sm text-[var(--color-muted)]">{c.requestNote}</p>
+      </div>
+    )}
 
     <p class="mt-12 border-t border-[var(--color-line)] pt-6">
       <a href={localePath(lang, '/contact')} class="text-[var(--color-accent)] hover:underline">

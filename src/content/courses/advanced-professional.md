@@ -1,6 +1,7 @@
 ---
 title: "Advanced Professional Sushi Chef Program"
-order: 4
+order: 2
+group: "professional"
 tagline: "Traditional Japanese technique. Modern sushi. Trained one-to-one."
 duration: "2 weeks, Monday to Friday (approx. 4 hours per day, approx. 40 hours total)"
 format: "One-to-one professional training"

@@ -9,7 +9,11 @@ import { copy } from '../i18n/copy';
 const lang = getLangFromUrl(Astro.url);
 
 const c = copy[lang].courses;
-const courses = (await getCollection(lang === 'de' ? 'coursesDe' : 'courses')).sort((a, b) => a.data.order - b.data.order);
+const courses = await getCollection(lang === 'de' ? 'coursesDe' : 'courses');
+const groups = (['professional', 'recreational'] as const).map((key) => ({
+  key,
+  items: courses.filter((course) => course.data.group === key).sort((a, b) => a.data.order - b.data.order),
+}));
 ---
 
 <BaseLayout title={c.title} description={c.description}>
@@ -20,41 +24,47 @@ const courses = (await getCollection(lang === 'de' ? 'coursesDe' : 'courses')).s
     </h1>
 
 
-    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        courses.map((course) => (
-          <a
-            href={localePath(lang, `/courses/${course.id}`)}
-            class="block border border-[var(--color-line)] transition hover:border-[var(--color-accent)]"
-          >
-            {course.data.heroImage ? (
-              <Image
-                src={course.data.heroImage}
-                alt={course.data.heroImageAlt ?? ''}
-                width={480}
-                class="h-40 w-full object-cover"
-              />
-            ) : (
-              <CourseIconPlaceholder class="h-40 w-full" />
-            )}
-            <div class="p-6">
-              <h2 class="font-[family-name:var(--font-display)] text-xl">{course.data.title}</h2>
-              <p class="mt-2 text-sm text-[var(--color-muted)]">{course.data.tagline}</p>
-              <dl class="mt-4 space-y-1 text-sm">
-                <div class="flex justify-between gap-4">
-                  <dt class="text-[var(--color-muted)]">{c.duration}</dt>
-                  <dd class="text-right">{course.data.duration}</dd>
+    {
+      groups.map((g) => (
+        <div class="mt-14">
+          <h2 class="font-[family-name:var(--font-display)] text-2xl">{c.groups[g.key].title}</h2>
+          <p class="mt-2 text-[var(--color-muted)]">{c.groups[g.key].intro}</p>
+          <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {g.items.map((course) => (
+              <a
+                href={localePath(lang, `/courses/${course.id}`)}
+                class="block border border-[var(--color-line)] transition hover:border-[var(--color-accent)]"
+              >
+                {course.data.heroImage ? (
+                  <Image
+                    src={course.data.heroImage}
+                    alt={course.data.heroImageAlt ?? ''}
+                    width={480}
+                    class="h-40 w-full object-cover"
+                  />
+                ) : (
+                  <CourseIconPlaceholder class="h-40 w-full" />
+                )}
+                <div class="p-6">
+                  <h2 class="font-[family-name:var(--font-display)] text-xl">{course.data.title}</h2>
+                  <p class="mt-2 text-sm text-[var(--color-muted)]">{course.data.tagline}</p>
+                  <dl class="mt-4 space-y-1 text-sm">
+                    <div class="flex justify-between gap-4">
+                      <dt class="text-[var(--color-muted)]">{c.duration}</dt>
+                      <dd class="text-right">{course.data.duration}</dd>
+                    </div>
+                    <div class="flex justify-between gap-4">
+                      <dt class="text-[var(--color-muted)]">{c.level}</dt>
+                      <dd class="text-right">{course.data.level}</dd>
+                    </div>
+                  </dl>
                 </div>
-                <div class="flex justify-between gap-4">
-                  <dt class="text-[var(--color-muted)]">{c.level}</dt>
-                  <dd class="text-right">{course.data.level}</dd>
-                </div>
-              </dl>
-            </div>
-          </a>
-        ))
-      }
-    </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))
+    }
 
     <h2 class="mt-20 font-[family-name:var(--font-display)] text-2xl">{c.compare}</h2>
     <div class="mt-6 overflow-x-auto">
@@ -69,20 +79,29 @@ const courses = (await getCollection(lang === 'de' ? 'coursesDe' : 'courses')).s
         </thead>
         <tbody>
           {
-            courses.map((course) => (
-              <tr class="border-b border-[var(--color-line)] align-top">
-                <td class="py-3 pr-4">
-                  <a
-                    href={localePath(lang, `/courses/${course.id}`)}
-                    class="hover:text-[var(--color-accent)]"
-                  >
-                    {course.data.title}
-                  </a>
-                </td>
-                <td class="py-3 pr-4 text-[var(--color-muted)]">{course.data.duration}</td>
-                <td class="py-3 pr-4 text-[var(--color-muted)]">{course.data.format}</td>
-                <td class="py-3 text-[var(--color-muted)]">{course.data.price}</td>
-              </tr>
+            groups.map((g) => (
+              <>
+                <tr class="bg-[var(--color-line)]/40">
+                  <th colspan="4" class="py-2 pr-4 text-left text-xs uppercase tracking-widest">
+                    {c.groups[g.key].title}
+                  </th>
+                </tr>
+                {g.items.map((course) => (
+                  <tr class="border-b border-[var(--color-line)] align-top">
+                    <td class="py-3 pr-4">
+                      <a
+                        href={localePath(lang, `/courses/${course.id}`)}
+                        class="hover:text-[var(--color-accent)]"
+                      >
+                        {course.data.title}
+                      </a>
+                    </td>
+                    <td class="py-3 pr-4 text-[var(--color-muted)]">{course.data.duration}</td>
+                    <td class="py-3 pr-4 text-[var(--color-muted)]">{course.data.format}</td>
+                    <td class="py-3 text-[var(--color-muted)]">{course.data.price}</td>
+                  </tr>
+                ))}
+              </>
             ))
           }
         </tbody>

@@ -1,6 +1,7 @@
 ---
 title: "Professional Sushi Chef Program"
-order: 3
+order: 1
+group: "professional"
 tagline: "Vom ersten Schnitt bis zur professionellen Sushi-Theke."
 duration: "8 Wochen, intensiv"
 format: "Praktische Ausbildung"
