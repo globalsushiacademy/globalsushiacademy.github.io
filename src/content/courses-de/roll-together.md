@@ -2,12 +2,12 @@
 title: "Roll Together"
 order: 2
 group: "recreational"
-requestOffer: "ROLL TOGETHER 99 €"
+requestOffer: "ROLL TOGETHER"
 tagline: "Sushi selber machen. Gemeinsam genießen."
 duration: "2–3 Stunden"
 format: "Praktisch und hands-on – alle machen selbst mit"
 level: "Keine Vorkenntnisse erforderlich"
-price: "99 € pro Person (inklusive 19 % MwSt.)"
+price: "117,81 € pro Person (inklusive 19 % MwSt.)"
 heroImage: "../../assets/images/gallery-hands-on-class-1.jpg"
 heroImageAlt: "Ein Schüler rollt unter Anleitung des Ausbilders Sushi an einem gemeinsamen Tisch, daneben bereiten weitere Schüler ihre eigenen Teller zu."
 ---

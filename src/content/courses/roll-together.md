@@ -2,12 +2,12 @@
 title: "Roll Together"
 order: 2
 group: "recreational"
-requestOffer: "ROLL TOGETHER 99 €"
+requestOffer: "ROLL TOGETHER"
 tagline: "Make sushi yourself. Enjoy it together."
 duration: "2–3 hours"
 format: "Practical and hands-on — everyone joins in"
 level: "No experience needed"
-price: "€99 per person (inclusive of 19% VAT)"
+price: "€117.81 per person (inclusive of 19% VAT)"
 heroImage: "../../assets/images/gallery-hands-on-class-1.jpg"
 heroImageAlt: "A student rolls sushi under an instructor's guidance at a shared classroom table, with several other students preparing their own plates alongside."
 ---
