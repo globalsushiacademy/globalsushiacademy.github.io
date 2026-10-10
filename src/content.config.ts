@@ -9,6 +9,9 @@ const courseSchema = ({ image }: SchemaContext) =>
     .object({
       title: z.string(),
       order: z.number(),
+      group: z.enum(['professional', 'recreational']),
+      // When set, the page offers a date-request email for this offer.
+      requestOffer: z.string().optional(),
       tagline: z.string(),
       duration: z.string(),
       format: z.string(),

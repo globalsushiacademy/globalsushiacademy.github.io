@@ -1,6 +1,7 @@
 ---
 title: "Sushi-Anfängerkurs"
 order: 1
+group: "recreational"
 tagline: "Ein Tag. Zwei bis drei Stunden. Ihr erstes echtes Sushi."
 duration: "Ein Tag, 2–3 Stunden"
 format: "Praktisches Training zum Mitmachen"

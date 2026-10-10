@@ -1,48 +1,39 @@
 ---
-title: "Roll Together — VIP Sushi & Sashimi Experience"
-order: 6
-tagline: "Come together, learn together, enjoy together."
-duration: "One evening"
-format: "Hands-on, led by a professional sushi chef. At the academy, or we bring the sushi bar to you."
-level: "No experience needed — private groups"
-price: "€236.81 per person (inclusive of 19% VAT)"
-certificate: "Certificate of Participation"
-heroImage: "../../assets/images/course-roll-together-hero.jpg"
-heroImageAlt: "A wooden boat-shaped serving board filled with an assortment of colourful sushi rolls, prepared for a group to share."
+title: "Roll Together"
+order: 2
+group: "recreational"
+requestOffer: "ROLL TOGETHER"
+tagline: "Make sushi yourself. Enjoy it together."
+duration: "2–3 hours"
+format: "Practical and hands-on — everyone joins in"
+level: "No experience needed"
+price: "€117.81 per person (inclusive of 19% VAT)"
+heroImage: "../../assets/images/gallery-hands-on-class-1.jpg"
+heroImageAlt: "A student rolls sushi under an instructor's guidance at a shared classroom table, with several other students preparing their own plates alongside."
 ---
 
-An exclusive evening with the chefs of Global Sushi Academy. Learn to
-prepare authentic and modern sushi, discover professional techniques, and
-enjoy everything you have made together, with drinks included.
+A shared sushi experience for friends, families and teams, in the middle of
+Lübeck. It takes place at Global Sushi Academy at Manna Sushi & Grill.
 
-Everything is prepared for you: the stations, the fish, the rice, the
-vegetables and the drinks. All you bring is your guests.
+## What to expect
 
-## What the evening includes
+- Prepare and season sushi rice properly
+- The basics of safe knife handling
+- Make hosomaki, futomaki, uramaki, temaki and nigiri yourselves
+- Plate and present your sushi, then enjoy it together
+- Professional guidance from Global Sushi Academy
 
-- **Sushi making** — learn the different styles and roll your own sushi
-  from start to finish.
-- **Sashimi** — discover how a professional prepares and presents fresh
-  sashimi.
-- **Professional techniques** — sushi rice, knife skills, ingredient
-  preparation and presentation.
-- **Hands-on, always** — you don't watch a demonstration, you make the
-  sushi yourself.
-- **Drinks included** — a selection of soft drinks, water and wine
-  throughout the evening.
-- **Your certificate** — every guest receives a Global Sushi Academy
-  certificate of participation.
+## For private groups. And for teams.
 
-## Choose your location
+ROLL TOGETHER combines trying something new with enjoying a meal. It is ideal
+for birthdays, groups of friends, team events and Christmas parties. Instead
+of just sitting at a table together, you make something together, and at the
+end you eat it together.
 
-**At the academy** — celebrate at real chef's stations with everything
-prepared for you. You arrive, roll and enjoy; we take care of the rest.
+## Christmas party 2026
 
-**We come to you** — prefer to celebrate at home? We bring our sushi bar
-to your home, office or private event. Our chef prepares and presents the
-whole experience on site.
+This year, roll your Christmas party. Roll, laugh, taste and enjoy together:
+a Christmas evening in which the team becomes part of the experience.
 
-> **Please note.** For private events at your own location, a minimum
-> number of participants applies and travel costs may be added. Contact us
-> to inquire: tell us your date, guest count and address, and we will
-> confirm the details.
+Looking for something more special? See
+[Roll Together Signature](/courses/roll-together-signature).

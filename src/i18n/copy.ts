@@ -59,11 +59,35 @@ export const copy = {
       format: 'Format',
       price: 'Price',
       course: 'Course',
+      groups: {
+        professional: {
+          title: 'Professional training',
+          intro: 'Career-oriented programs for aspiring and working sushi chefs.',
+        },
+        recreational: {
+          title: 'Recreational courses & experiences',
+          intro: 'Learn sushi as a hobby, or celebrate with friends, family or your team.',
+        },
+      },
     },
     detail: {
       breadcrumb: 'Courses',
       certificate: 'Certificate',
       cta: 'Get in touch about this course →',
+      request: 'Request your preferred date →',
+      requestNote: 'Non-binding request: we check the date and reply with the details.',
+      mailSubject: 'Date request',
+      mailFields: [
+        'Name / company',
+        'Contact person',
+        'Email',
+        'Phone',
+        'Preferred date',
+        'Number of participants',
+        'Occasion (Christmas party / team event / private group / other)',
+        'Offer',
+        'Special requests / intolerances',
+      ],
     },
     about: {
       title: 'About Us',
@@ -208,11 +232,35 @@ export const copy = {
       format: 'Format',
       price: 'Preis',
       course: 'Kurs',
+      groups: {
+        professional: {
+          title: 'Berufliche Ausbildung',
+          intro: 'Karriereorientierte Programme für angehende und erfahrene Sushi-Köche.',
+        },
+        recreational: {
+          title: 'Freizeitkurse & Erlebnisse',
+          intro: 'Sushi als Hobby – oder als gemeinsames Erlebnis mit Freunden, Familie und Team.',
+        },
+      },
     },
     detail: {
       breadcrumb: 'Kurse',
       certificate: 'Zertifikat',
       cta: 'Anfrage zu diesem Kurs →',
+      request: 'Wunschtermin anfragen →',
+      requestNote: 'Unverbindliche Anfrage – wir prüfen den Termin und melden uns mit den Details.',
+      mailSubject: 'Terminanfrage',
+      mailFields: [
+        'Name / Firma',
+        'Ansprechpartner:in',
+        'E-Mail',
+        'Telefon',
+        'Wunschtermin',
+        'Teilnehmerzahl',
+        'Anlass (Weihnachtsfeier / Team-Event / Privatgruppe / Sonstiges)',
+        'Gewünschtes Angebot',
+        'Besondere Wünsche / Unverträglichkeiten',
+      ],
     },
     about: {
       title: 'Über uns',
