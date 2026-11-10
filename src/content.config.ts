@@ -9,15 +9,14 @@ const courseSchema = ({ image }: SchemaContext) =>
     .object({
       title: z.string(),
       order: z.number(),
-      group: z.enum(['professional', 'recreational']),
       // When set, the page offers a date-request email for this offer.
       requestOffer: z.string().optional(),
       tagline: z.string(),
       duration: z.string(),
       format: z.string(),
       level: z.string(),
-      // Free text so each language can phrase the gross price, e.g.
-      // "€7,140 (inclusive of 19% VAT)".
+      // Free text so each language can phrase the price, e.g.
+      // "€7,140 incl. 19% VAT (€6,000 net)".
       price: z.string(),
       certificate: z.string().optional(),
       // `image()` validates the path resolves to a real asset and gives Astro
