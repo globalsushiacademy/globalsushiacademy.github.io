@@ -1,13 +1,12 @@
 ---
 title: "Roll Together"
 order: 2
-group: "recreational"
 requestOffer: "ROLL TOGETHER"
 tagline: "Make sushi yourself. Enjoy it together."
 duration: "2–3 hours"
 format: "Practical and hands-on — everyone joins in"
 level: "No experience needed"
-price: "€117.81 per person (inclusive of 19% VAT)"
+price: "€117.81 per person incl. 19% VAT (€99 net)"
 heroImage: "../../assets/images/gallery-hands-on-class-1.jpg"
 heroImageAlt: "A student rolls sushi under an instructor's guidance at a shared classroom table, with several other students preparing their own plates alongside."
 ---
@@ -29,6 +28,12 @@ ROLL TOGETHER combines trying something new with enjoying a meal. It is ideal
 for birthdays, groups of friends, team events and Christmas parties. Instead
 of just sitting at a table together, you make something together, and at the
 end you eat it together.
+
+## Price
+
+| | Net | VAT (19%) | Gross |
+|---|--:|--:|--:|
+| Per person | €99.00 | €18.81 | €117.81 |
 
 ## Christmas party 2026
 

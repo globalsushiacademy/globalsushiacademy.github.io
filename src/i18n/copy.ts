@@ -28,8 +28,8 @@ export const copy = {
           body: 'Every course ends with an academy-issued certificate, awarded in person — proof of the training you completed.',
         },
         {
-          title: 'One-to-one and small-group options',
-          body: 'Beyond the standard courses, train privately with the Advanced Professional program or book a private group evening with Roll Together.',
+          title: 'Practice in a working restaurant',
+          body: 'In the eight-week Professional Sushi Chef Course you apply each day’s training in the evening during live service at Manna Sushi & Grill. For groups and teams, book a Roll Together evening.',
         },
       ],
       coursesHeading: 'Courses',
@@ -59,16 +59,6 @@ export const copy = {
       format: 'Format',
       price: 'Price',
       course: 'Course',
-      groups: {
-        professional: {
-          title: 'Professional training',
-          intro: 'Career-oriented programs for aspiring and working sushi chefs.',
-        },
-        recreational: {
-          title: 'Recreational courses & experiences',
-          intro: 'Learn sushi as a hobby, or celebrate with friends, family or your team.',
-        },
-      },
     },
     detail: {
       breadcrumb: 'Courses',
@@ -201,8 +191,8 @@ export const copy = {
           body: 'Jeder Kurs endet mit einem Zertifikat der Akademie, das persönlich überreicht wird — als Nachweis der absolvierten Ausbildung.',
         },
         {
-          title: 'Einzel- und Kleingruppentraining',
-          body: 'Neben den Standardkursen können Sie im Advanced-Professional-Programm privat trainieren oder mit „Roll Together“ einen privaten Gruppenabend buchen.',
+          title: 'Praxis im echten Restaurantbetrieb',
+          body: 'Im achtwöchigen Professional Sushi Chef Course wenden Sie das Gelernte jeden Abend im laufenden Betrieb des Manna Sushi & Grill an. Für Gruppen und Teams gibt es die Roll-Together-Abende.',
         },
       ],
       coursesHeading: 'Kurse',
@@ -232,16 +222,6 @@ export const copy = {
       format: 'Format',
       price: 'Preis',
       course: 'Kurs',
-      groups: {
-        professional: {
-          title: 'Berufliche Ausbildung',
-          intro: 'Karriereorientierte Programme für angehende und erfahrene Sushi-Köche.',
-        },
-        recreational: {
-          title: 'Freizeitkurse & Erlebnisse',
-          intro: 'Sushi als Hobby – oder als gemeinsames Erlebnis mit Freunden, Familie und Team.',
-        },
-      },
     },
     detail: {
       breadcrumb: 'Kurse',

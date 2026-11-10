@@ -1,13 +1,12 @@
 ---
 title: "Roll Together"
 order: 2
-group: "recreational"
 requestOffer: "ROLL TOGETHER"
 tagline: "Sushi selber machen. Gemeinsam genießen."
 duration: "2–3 Stunden"
 format: "Praktisch und hands-on – alle machen selbst mit"
 level: "Keine Vorkenntnisse erforderlich"
-price: "117,81 € pro Person (inklusive 19 % MwSt.)"
+price: "117,81 € pro Person inkl. 19 % MwSt. (99 € netto)"
 heroImage: "../../assets/images/gallery-hands-on-class-1.jpg"
 heroImageAlt: "Ein Schüler rollt unter Anleitung des Ausbilders Sushi an einem gemeinsamen Tisch, daneben bereiten weitere Schüler ihre eigenen Teller zu."
 ---
@@ -29,6 +28,12 @@ ROLL TOGETHER verbindet gemeinsames Ausprobieren mit Genuss. Ideal für
 Geburtstage, Freundeskreise, Team-Events und Weihnachtsfeiern. Statt nur
 gemeinsam am Tisch zu sitzen, entsteht etwas zusammen – und am Ende wird
 gemeinsam gegessen.
+
+## Preis
+
+| | Netto | MwSt. (19 %) | Brutto |
+|---|--:|--:|--:|
+| Pro Person | 99,00 € | 18,81 € | 117,81 € |
 
 ## Weihnachtsfeier 2026
 

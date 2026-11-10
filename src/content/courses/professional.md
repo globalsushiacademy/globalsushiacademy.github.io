@@ -1,88 +1,146 @@
 ---
-title: "Professional Sushi Chef Program"
+title: "Professional Sushi Chef Course"
 order: 1
-group: "professional"
-tagline: "From your first cut to a professional sushi counter."
-duration: "8 weeks, intensive"
-format: "Hands-on practical training"
-level: "Beginner to professional"
-price: "€7,140 (inclusive of 19% VAT)"
-certificate: "Professional Sushi Chef Certificate"
+tagline: "Eight weeks of intensive training – from the precise cut to the finished restaurant order."
+duration: "8 weeks, Tuesday to Sunday"
+format: "Daily training plus a practical phase during live restaurant service"
+level: "From a committed start to extending existing kitchen experience"
+price: "€7,140 incl. 19% VAT (€6,000 net)"
+certificate: "Global Sushi Academy certificate – an academy-issued qualification, not a state-recognised vocational qualification"
 heroImage: "../../assets/images/course-professional-hero.jpg"
 heroImageAlt: "An avocado-topped sushi roll garnished with micro herbs and a citrus glaze, sliced and plated."
 ---
 
-An intensive, hands-on program that takes you from your first cut to a
-professional sushi counter. You train in the core disciplines of the craft
-(knife, rice and fish) and in the skills that keep a restaurant running:
-speed, hygiene, costing and service.
+## Understand the craft of sushi. Build real skill.
 
-**Start dates.** There is no fixed schedule. The program runs on demand and
-starts once the minimum number of participants is reached. Contact us to
-register your interest.
+Good sushi comes from high-quality ingredients, craftsmanship and experience.
+In the Professional Sushi Chef Course at Global Sushi Academy you learn from
+Ram Gosai at the Manna Sushi & Grill restaurant in Lübeck. The training
+combines systematic instruction with daily practice under real restaurant
+conditions.
 
-## The curriculum
+## Our method: See. Understand. Practise. Apply.
 
-Ten modules, built in sequence. Each one develops a skill you will use from
-your first day in a professional kitchen.
+Every technique starts with looking closely: professional photographs document
+each step and cut. Videos show the movements and handling. Then you practise
+the techniques yourself – deliberately on the following day, so that what you
+have seen becomes a confident, reliable movement. In the evening practical
+phase you apply what you have learned during live restaurant service.
 
-**01 Knife Craft** — Safe, professional knife handling, Japanese cutting
-techniques, sharpening and knife maintenance, fish cutting and portioning,
-vegetable preparation, and precision and consistency in every cut.
+## Course schedule
 
-**02 Shari: The Sushi Rice** — Washing, cooking and resting; preparing
-sushi vinegar; seasoning and mixing technique; controlling temperature and
-texture; professional rice handling.
+- Duration: eight weeks
+- Course days: Tuesday to Sunday; Monday off
+- Daily training: 08:00–12:00
+- Daily practical phase in the restaurant: 17:00–21:00
+- Food and drinks during the course included
+- Accommodation not included; participants arrange and pay for it themselves
 
-**03 Fish & Seafood** — Selecting fish and judging quality, preparation and
-filleting principles, professional slicing techniques, portion control,
-safe storage and handling, salmon, tuna and other sushi-grade fish.
+Over eight full weeks the training adds up to as many as 384 hours of training
+and restaurant practice. The exact classification and organisation of the
+practical phase are set out in the terms of participation.
 
-**04 Traditional Sushi** — Nigiri, gunkan-maki, hosomaki, futomaki,
-uramaki, temaki, sashimi, and traditional Japanese presentation.
+## The curriculum: ten modules that build on each other
 
-**05 Modern & Signature Sushi** — Contemporary and premium rolls,
-developing signature rolls, fusion techniques, creative toppings, sauces
-and garnishes, and menu development.
+### 01 · Knife Craft
 
-**06 Tempura & Japanese Specialities** — Tempura batter technique,
-vegetable and seafood tempura, tempura sushi, Japanese side dishes, sauces
-and accompaniments.
+Safe knife handling, sharpening and care, precise cutting techniques,
+portioning and consistent cut quality.
 
-**07 Plant-Based Sushi** — Vegetable sushi, vegan rolls, modern
-plant-based combinations, vegan sauces and toppings, creative
-presentation.
+### 02 · Shari – sushi rice
 
-**08 Hygiene & Food Safety** — Professional kitchen hygiene, HACCP
-principles, preventing cross-contamination, fish handling and storage,
-cleaning and sanitation, professional food-safety standards.
+Washing, cooking, seasoning and mixing; temperature, texture, acidity and
+reliable quality.
 
-**09 Sushi Bar Operations** — Mise en place and station organization,
-preparation planning, speed and consistency, order management,
-presentation and restaurant service, performing under pressure.
+### 03 · Fish & Seafood
 
-**10 Restaurant & Business Skills** — Food costing and ingredient
-calculation, portion and stock control, menu planning and sushi pricing,
-waste reduction, restaurant operations fundamentals.
+Quality and selection, filleting, portioning, the cold chain, safe storage,
+yield and product safety.
 
-## After the course
+### 04 · Traditional Sushi
 
-The program does not end with your certificate. Graduates continue into a
-period of supervised practical training in a working kitchen, where
-technique becomes speed and consistency. The instructor selects the best student or students of each group, who will be
-offered a job at our sister restaurant, Manna Sushi & Grill. There is no
-guarantee of a position. Other graduates may receive support in connecting with partner
-restaurants and hotels that are hiring.
+Nigiri, gunkan, hosomaki, futomaki, uramaki, temaki and sashimi – form,
+proportion and presentation.
 
-> **Important.** Visas, residence permits and employment authorization are
-> decided solely by the relevant German authorities. Global Sushi Academy
-> does not guarantee visa approval, and enrollment in the program does not
-> by itself guarantee employment.
+### 05 · Modern & Signature Sushi
 
-## Our philosophy
+Modern rolls, fusion, toppings, sauces and your own creations – thought
+through for flavour and for cost.
 
-Recipes can be copied. Judgement has to be trained. At Global Sushi
-Academy, we combine the foundations of traditional Japanese sushi
-craftsmanship with the techniques of the modern international restaurant.
-Every technique is taught with its reasoning: why it is used, how it is
-performed, and when it is right.
+### 06 · Tempura & Specialities
+
+Vegetable and seafood tempura, batter, frying technique, crispness, sauces and
+side dishes.
+
+### 07 · Plant-Based Sushi
+
+Vegetarian and vegan creations, ingredient combinations, your own flavours,
+allergens and presentation.
+
+### 08 · Hygiene & Food Safety
+
+HACCP principles, cleaning, cross-contamination, goods receipt, temperatures
+and traceability.
+
+### 09 · Sushi Bar Operations
+
+Mise en place, station organisation, orders, pace, consistent quality and team
+communication.
+
+### 10 · Restaurant & Business Skills
+
+Food cost, costing, portions, stock, waste reduction, pricing and menu
+planning.
+
+## Additional: Asia Fusion
+
+About 90 percent of the course is sushi. The remaining ten percent or so adds
+selected techniques and specialities from Korea, Japan, Thailand, China and
+Nepal, so participants learn to respond to a range of guest requests in
+everyday restaurant work.
+
+## Final exam: from order to service
+
+The practical final exam reproduces a typical restaurant task: a precise order
+is taken, understood, prepared and served. It is assessed on correct
+interpretation of the order, craftsmanship, completeness and accuracy, and on
+appearance, sensory quality, taste and presentation. Successful completion is
+confirmed with a Global Sushi Academy certificate.
+
+The certificate is an academy-issued qualification and not a state-recognised
+vocational qualification.
+
+## Who is the course for?
+
+The course is for people who want a solid grounding in professional
+sushi craft – from a committed start to deliberately extending existing
+kitchen experience. It combines classic sushi forms, modern creations, kitchen
+organisation and business understanding.
+
+## Your instructor: Ram Gosai
+
+Ram Gosai brings restaurant experience and influences from Nepal, Japan and
+the USA. At his restaurant, Manna Sushi & Grill, he combines traditional craft
+with modern international cuisine and the daily responsibility for quality and
+service.
+
+## Participation and enquiries
+
+Location: Global Sushi Academy at Manna Sushi & Grill, Marienkirchhof 2–3,
+Lübeck. Start dates, available places and admission requirements are provided
+on request.
+
+| | Net | VAT (19%) | Gross |
+|---|--:|--:|--:|
+| Course fee | €6,000.00 | €1,140.00 | €7,140.00 |
+
+The academy provides training and practical experience. Subsequent
+employment, a particular salary, job placement or official approval is not
+guaranteed. Questions about residence, visas and work permits must be
+clarified independently with the relevant authorities.
+
+## Request course information
+
+Interested in the next intake? Write to us with your professional background,
+your learning goals and your preferred start period. We will tell you about
+the schedule, requirements and available places.
