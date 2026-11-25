@@ -5,9 +5,9 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  // Beta: served from the user-site repo globalsushiacademy.github.io, so no
-  // `base` is needed.
-  site: 'https://globalsushiacademy.github.io',
+  // Served from the user-site repo globalsushiacademy.github.io under a
+  // custom domain, so no `base` is needed.
+  site: 'https://globalsushiacademy.com',
 
   i18n: {
     defaultLocale: 'en',
